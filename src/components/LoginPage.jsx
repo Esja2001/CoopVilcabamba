@@ -5,7 +5,7 @@ import backgroundImage from "/public/assets/images/onu.jpg";
 import lasNaveslogo1 from "/public/assets/images/logolasnaves_c.png";
 
 const backgroundStyle = {
-  backgroundImage: `linear-gradient(135deg, rgba(25,47,71,0.35) 0%, rgba(40,70,102,0.30) 30%, rgba(55,93,133,0.25) 70%, rgba(70,116,164,0.20) 100%), url(${backgroundImage})`,
+  backgroundImage: `linear-gradient(135deg, rgba(25,47,71,0.25) 0%, rgba(40,70,102,0.20) 30%, rgba(55,93,133,0.15) 70%, rgba(70,116,164,0.10) 100%), url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -325,7 +325,7 @@ const LoginPage = ({
               <img
                 src={lasNaveslogo1}
                 alt="Las Naves - Cooperativa de Ahorro y Crédito"
-                className="h-24 w-auto object-contain filter drop-shadow-2xl transition-all duration-500"
+                className="h-52 w-auto object-contain filter drop-shadow-2xl transition-all duration-500"
               />
             </div>
 

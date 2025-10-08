@@ -294,14 +294,14 @@ const SameAccounts = ({ onBack, openWindow }) => {
       // Título principal (fontSize 10)
       doc.setFontSize(10);
       doc.setFont("helvetica", "bold");
-      doc.text("COOPERATIVA LAS NAVES LTDA", pageWidth / 2, 18, {
+      doc.text("COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA", pageWidth / 2, 18, {
         align: "center",
       });
 
       // Subtítulo (fontSize 11)
       doc.setFontSize(11);
       doc.setFont("helvetica", "normal");
-      doc.text("LAS NAVES - BOLIVAR", pageWidth / 2, 24, { align: "center" });
+      doc.text("VILCABAMBA - LOJA", pageWidth / 2, 24, { align: "center" });
 
       // Línea separadora
       doc.setLineWidth(0.3);
@@ -471,14 +471,9 @@ const SameAccounts = ({ onBack, openWindow }) => {
       <div className="p-6 h-full bg-gradient-to-br from-slate-50 via-blue-50 to-sky-100 overflow-auto">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/90 border border-emerald-200/60 rounded-2xl p-8 text-center shadow-lg backdrop-blur-sm">
-            <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
-              <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
-              </svg>
-            </div>
-            {/* Logo de Las Naves sobre el comprobante */}
-            <div className="mb-4">
-              <img src="/assets/images/logolasnaves_c.png" alt="Las Naves" className="mx-auto h-16" />
+            {/* Logo de Cooperativa Vilcabamba sobre el comprobante */}
+            <div className="mb-6">
+              <img src="/assets/images/isocoaclasnaves.png" alt="Cooperativa Vilcabamba" className="mx-auto h-16" />
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-4">¡Transferencia Exitosa!</h2>
             <p className="text-slate-600 mb-6">Tu transferencia entre cuentas propias se ha procesado correctamente</p>
@@ -834,7 +829,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                 </p>
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-left">
                   <p className="text-xs text-amber-700">
-                    <strong>Próximamente:</strong> Podrás transferir entre tus cuentas de Las Naves y otros bancos del sistema financiero.
+                    <strong>Próximamente:</strong> Podrás transferir entre tus cuentas de Cooperativa Vilcabamba y otros bancos del sistema financiero.
                   </p>
                 </div>
               </div>

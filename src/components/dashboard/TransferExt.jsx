@@ -437,12 +437,12 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
       // Título principal
       doc.setFontSize(11);
       doc.setFont('helvetica', 'bold');
-      doc.text('COOPERATIVA LAS NAVES LTDA', pageWidth / 2, 20, { align: 'center' });
+      doc.text('COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA', pageWidth / 2, 20, { align: 'center' });
 
       // Subtítulo
       doc.setFontSize(8);
       doc.setFont('helvetica', 'normal');
-      doc.text('LAS NAVES - BOLIVAR', pageWidth / 2, 26, { align: 'center' });
+      doc.text('VILCABAMBA - LOJA', pageWidth / 2, 26, { align: 'center' });
 
       // Fecha
       const currentDate = new Date().toLocaleString('es-EC', {
@@ -526,7 +526,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
       );
 
       doc.text(
-        'COOPERATIVA LAS NAVES LTDA - Las Naves, Bolívar',
+        'COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA - Vilcabamba, Loja',
         pageWidth / 2,
         finalY + 22,
         { align: 'center' }
@@ -585,14 +585,9 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
       <div className="p-6 h-full bg-gradient-to-br from-slate-50 via-blue-50 to-sky-100 overflow-auto">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/90 border border-emerald-200/60 rounded-2xl p-8 text-center shadow-lg backdrop-blur-sm">
-            <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
-              <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
-              </svg>
-            </div>
-            {/* Logo de Las Naves sobre el comprobante */}
-            <div className="mb-4">
-              <img src="/assets/images/logolasnaves_c.png" alt="Las Naves" className="mx-auto h-16" />
+            {/* Logo de Cooperativa Vilcabamba sobre el comprobante */}
+            <div className="mb-6">
+              <img src="/assets/images/isocoaclasnaves.png" alt="Cooperativa Vilcabamba" className="mx-auto h-16" />
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-4">¡Transferencia Exitosa!</h2>
             <p className="text-slate-600 mb-6">Tu transferencia interbancaria se ha procesado correctamente</p>

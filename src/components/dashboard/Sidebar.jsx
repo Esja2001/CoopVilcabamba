@@ -129,12 +129,12 @@ const Sidebar = ({ userInfo, onMenuClick, onLogout }) => {
     <div className="w-64 bg-white text-gray-800 flex flex-col shadow-lg h-screen overflow-hidden border-r border-gray-200">
       {/* Brand Header */}
       <div className="p-4 border-b border-gray-200 flex-shrink-0">
-        <div className="flex items-center">
-          <div className="flex flex-col">
+        <div className="flex items-center justify-center">
+          <div className="flex flex-col items-center">
             <img 
               src={logosidebar} 
               alt="Las Naves - Cooperativa de Ahorro y Crédito" 
-              className="h-10 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </div>
         </div>

@@ -564,14 +564,14 @@ const SavingsProductForm = () => {
       // Título principal (reducido de 16 a 14)
       doc.setFontSize(10);
       doc.setFont("helvetica", "bold");
-      doc.text("COOPERATIVA LAS NAVES LTDA", pageWidth / 2, 18, {
+      doc.text("COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA", pageWidth / 2, 18, {
         align: "center",
       });
 
       // Subtítulo (reducido de 14 a 11)
       doc.setFontSize(11);
       doc.setFont("helvetica", "normal");
-      doc.text("LAS NAVES - BOLIVAR", pageWidth / 2, 24, { align: "center" });
+      doc.text("VILCABAMBA - LOJA", pageWidth / 2, 24, { align: "center" });
 
       // Línea separadora (más arriba para optimizar espacio)
       doc.setLineWidth(0.3);
@@ -673,7 +673,7 @@ const SavingsProductForm = () => {
             // Título compacto en páginas adicionales (SIN "Continuación")
             doc.setFontSize(10);
             doc.setFont("helvetica", "bold");
-            doc.text("COOPERATIVA LAS NAVES LTDA", pageWidth / 2, 18, { align: "center" });
+            doc.text("COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA", pageWidth / 2, 18, { align: "center" });
             
             doc.setFontSize(8);
             doc.setFont("helvetica", "normal");
