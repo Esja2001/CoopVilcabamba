@@ -224,9 +224,9 @@ const BlockUser = ({ onBackToLogin }) => {
       
       {/* Elementos decorativos sutiles - siguiendo patrón de LoginPage */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-600/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -251,8 +251,8 @@ const BlockUser = ({ onBackToLogin }) => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             <div className="text-center mb-6 relative z-10">
@@ -262,7 +262,7 @@ const BlockUser = ({ onBackToLogin }) => {
               <h2 className="text-2xl font-bold text-slate-800 mb-1">
                 Bloquear Usuario
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 Complete la información para proceder con el bloqueo de la cuenta
               </p>
@@ -273,12 +273,12 @@ const BlockUser = ({ onBackToLogin }) => {
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                   alert.type === "success"
-                    ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                    ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                     : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === "success" ? (
@@ -304,7 +304,7 @@ const BlockUser = ({ onBackToLogin }) => {
                 </label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
                     </svg>
                   </div>
@@ -317,9 +317,9 @@ const BlockUser = ({ onBackToLogin }) => {
                     placeholder="Ej: 1723456789"
                     maxLength="10"
                     disabled={isLoading}
-                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                       cedulaValidated 
-                        ? 'border-blue-400 ring-2 ring-blue-200' 
+                        ? 'border-cyan-400 ring-2 ring-cyan-200' 
                         : 'border-slate-300 hover:border-slate-400'
                     }`}
                   />
@@ -327,12 +327,12 @@ const BlockUser = ({ onBackToLogin }) => {
                   {/* Indicador de validación */}
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                     {isValidatingCedula ? (
-                      <svg className="animate-spin h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
                     ) : cedulaValidated ? (
-                      <svg className="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <svg className="h-4 w-4 text-cyan-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
                     ) : null}
@@ -342,18 +342,18 @@ const BlockUser = ({ onBackToLogin }) => {
 
               {/* Información del usuario - ESTILO ACTUALIZADO COMO LOGINPAGE */}
               {cedulaValidated && userInfo?.cliente?.[0] && (
-                <div className="bg-blue-50/80 border-blue-200/60 text-blue-800 rounded-lg p-3 border backdrop-blur-sm">
+                <div className="bg-cyan-50/80 border-cyan-200/60 text-cyan-800 rounded-lg p-3 border backdrop-blur-sm">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-100/80 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                      <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                    <div className="w-8 h-8 bg-cyan-100/80 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                      <svg className="w-4 h-4 text-cyan-600" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                       </svg>
                     </div>
                     <div>
-                      <p className="text-blue-800 font-semibold text-sm">
+                      <p className="text-cyan-800 font-semibold text-sm">
                         {userInfo.cliente[0].nomcli} {userInfo.cliente[0].apecli}
                       </p>
-                      <p className="text-blue-600 text-xs">
+                      <p className="text-cyan-600 text-xs">
                         Usuario: {userInfo.webusu}
                       </p>
                     </div>
@@ -369,7 +369,7 @@ const BlockUser = ({ onBackToLogin }) => {
                   </label>
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22H9M4,4V16H8.5L12,19.5L15.5,16H20V4H4Z"/>
                       </svg>
                     </div>
@@ -381,7 +381,7 @@ const BlockUser = ({ onBackToLogin }) => {
                       onChange={handleInputChange}
                       placeholder="Ingrese su respuesta..."
                       disabled={isLoading}
-                      className="block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md border-slate-300 hover:border-slate-400"
+                      className="block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md border-slate-300 hover:border-slate-400"
                     />
                   </div>
                 </div>
@@ -392,7 +392,7 @@ const BlockUser = ({ onBackToLogin }) => {
                 <button
                   type="submit"
                   disabled={isLoading || !cedulaValidated || !securityQuestion || !formData.respuesta.trim()}
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                   

@@ -36,10 +36,22 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    
+    // Si es el campo de cédula, solo permitir números y máximo 13 dígitos
+    if (name === 'cedula') {
+      const numericValue = value.replace(/\D/g, ''); // Eliminar todo lo que no sea número
+      if (numericValue.length <= 13) {
+        setFormData(prev => ({
+          ...prev,
+          [name]: numericValue
+        }));
+      }
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      }));
+    }
 
     if (errors[name]) {
       setErrors(prev => {
@@ -166,9 +178,9 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
     return (
       <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-16 w-24 h-24 bg-blue-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-blue-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-16 w-24 h-24 bg-cyan-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-cyan-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
         </div>
 
         <div className="min-h-screen flex items-center justify-center p-8 relative z-10">
@@ -193,8 +205,8 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
             <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
               
               {/* Efectos de brillo sutiles */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
               
               {/* Header - ESTILO ACTUALIZADO COMO LOGINPAGE */}
               <div className="text-center mb-6 relative z-10">
@@ -204,7 +216,7 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                 <h2 className="text-2xl font-bold text-slate-800 mb-1">
                   Validar Identidad
                 </h2>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
                 <p className="text-slate-600 text-xs font-medium">
                   Paso 1 de 2: Ingrese su número de cédula para verificar que es cliente de la cooperativa
                 </p>
@@ -215,12 +227,12 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                 <div className="mb-4 relative z-10">
                   <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                     alert.type === "success"
-                      ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                      ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                       : "bg-red-50/80 border-red-200/60 text-red-800"
                   }`}>
                     <div className="flex items-center">
                       <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                        alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                        alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                       }`}>
                         <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                           {alert.type === "success" ? (
@@ -244,7 +256,7 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                   </label>
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
                       </svg>
                     </div>
@@ -257,7 +269,7 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                       onChange={handleInputChange}
                       placeholder="Ej: 1711495000"
                       disabled={isLoading}
-                      className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                      className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                         errors.cedula ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 hover:border-slate-400'
                       }`}
                     />
@@ -273,8 +285,8 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                 <div className="space-y-3">
                   <button
                     type="submit"
-                    disabled={isLoading}
-                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                    disabled={isLoading || !formData.cedula.trim()}
+                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>
@@ -306,8 +318,8 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -326,16 +338,16 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
           </div>
 
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             <div className="text-center mb-6 relative z-10">
               <div className="w-24 h-24 mx-auto mb-4"><img src="/assets/images/isocoaclasnaves.png" alt="Logo" className="w-full h-full object-contain" /></div>
               <h2 className="text-2xl font-bold text-slate-800 mb-1">Términos y Condiciones</h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">Paso 2 de 2: Aceptar términos para cambio de preguntas de seguridad</p>
               {clientData && (
-                <div className="mt-4 bg-blue-50/90 border border-blue-200/70 rounded-xl p-3">
-                  <p className="text-blue-900 text-sm font-bold">
+                <div className="mt-4 bg-cyan-50/90 border border-cyan-200/70 rounded-xl p-3">
+                  <p className="text-cyan-900 text-sm font-bold">
                     <span className="font-bold">{clientData.nomcli} {clientData.apecli}</span> • Cédula: {clientData.idecli} • Usuario: {usuario}
                   </p>
                 </div>
@@ -345,11 +357,11 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
             {alert && (
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
-                  alert.type === "success" ? "bg-blue-50/80 border-blue-200/60 text-blue-800" : "bg-red-50/80 border-red-200/60 text-red-800"
+                  alert.type === "success" ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800" : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === "success" ? <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /> : <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />}
@@ -425,8 +437,8 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                       </p>
                     </section>
 
-                    <div className="mt-6 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                      <p className="text-xs text-blue-800">
+                    <div className="mt-6 p-3 bg-cyan-50 rounded-lg border border-cyan-200">
+                      <p className="text-xs text-cyan-800">
                         <strong>Última actualización:</strong> Octubre 2025<br/>
                         <strong>Contacto:</strong> info@lasnaves.coop
                       </p>
@@ -442,7 +454,7 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
                   type="checkbox"
                   checked={acceptedTerms}
                   onChange={(e) => setAcceptedTerms(e.target.checked)}
-                  className="mt-1 h-5 w-5 text-blue-600 focus:ring-blue-500 border-slate-300 rounded-md shadow-sm"
+                  className="mt-1 h-5 w-5 text-cyan-600 focus:ring-cyan-500 border-slate-300 rounded-md shadow-sm"
                 />
                 <span className="text-slate-800 text-sm font-medium">
                   He leído y acepto los <strong>términos y condiciones</strong> para el cambio de preguntas de seguridad de Las Naves Cooperativa de Ahorro y Crédito.
@@ -454,7 +466,7 @@ const IdentityValidationPage = ({ onNext, onCancel }) => {
               <button
                 onClick={handleTermsSubmit}
                 disabled={!acceptedTerms}
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
               >
                 CONTINUAR CON PREGUNTAS DE SEGURIDAD
               </button>

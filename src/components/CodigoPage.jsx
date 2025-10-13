@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import apiService from '../services/apiService.js';
 import backgroundImage from "/public/assets/images/onu.jpg";
 
-// Match RegisterPage overlay: dark gradient + background image for opacity/dim effect
+
 const backgroundStyle = {
   backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.88) 50%, rgba(51, 65, 85, 0.92) 100%), url(${backgroundImage})`,
   backgroundSize: "cover",
@@ -399,9 +399,9 @@ const requestSecurityCode = async () => {
       
       {/* Elementos decorativos sutiles - siguiendo patrón de LoginPage */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-600/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -426,8 +426,8 @@ const requestSecurityCode = async () => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             <div className="text-center mb-6 relative z-10">
@@ -437,7 +437,7 @@ const requestSecurityCode = async () => {
               <h2 className="text-2xl font-bold text-slate-800 mb-1">
                 {texts.title[currentStep]}
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 {texts.subtitle[currentStep]}
               </p>
@@ -455,12 +455,12 @@ const requestSecurityCode = async () => {
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                   alert.type === "success"
-                    ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                    ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                     : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === "success" ? (
@@ -479,7 +479,7 @@ const requestSecurityCode = async () => {
             {/* Estado: Solicitando código - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             {currentStep === 'requesting' && (
               <div className="text-center py-12 relative z-10">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-600 mx-auto mb-4"></div>
                 <p className="text-slate-800 text-lg mb-2 font-semibold">Enviando código de seguridad...</p>
                 <p className="text-slate-600 text-sm">
                   Esto puede tomar unos segundos
@@ -511,7 +511,7 @@ const requestSecurityCode = async () => {
                         onChange={e => handleInputChange(index, e.target.value)}
                         onKeyDown={e => handleKeyDown(index, e)}
                         onPaste={handlePaste}
-                        className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
+                        className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
                         disabled={isLoading}
                       />
                     ))}
@@ -527,11 +527,7 @@ const requestSecurityCode = async () => {
                   <button
                     type="submit"
                     disabled={isLoading || codigo.length !== 6}
-                    className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed ${
-                      isBlockingUser 
-                        ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:ring-blue-500/50 shadow-blue-500/20' 
-                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:ring-blue-500/50'
-                    }`}
+                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                     
@@ -560,7 +556,7 @@ const requestSecurityCode = async () => {
                       onClick={handleRetry}
                       disabled={isLoading}
                       className={`w-full flex justify-center py-2 px-4 text-xs font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2 ${
-                        isLoading ? 'text-slate-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                        isLoading ? 'text-slate-400 cursor-not-allowed' : 'text-cyan-600 hover:text-cyan-800'
                       }`}
                     >
                       Reenviar código
@@ -604,7 +600,7 @@ const requestSecurityCode = async () => {
                 )}
 
                 {isChangingPassword && (
-                  <div className="bg-blue-500/20 border border-blue-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
+                  <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
                     <p className="text-white/90 text-sm">
                       <strong>Importante:</strong> Su contraseña ha sido actualizada. Ya puede iniciar sesión con su nueva contraseña.
                     </p>
@@ -613,11 +609,7 @@ const requestSecurityCode = async () => {
                 
                 <button
                   onClick={onBackToLogin}
-                  className={`${
-                    isBlockingUser ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20' : 
-                    isChangingPassword ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20' : 
-                    'bg-blue-600 hover:bg-blue-700'
-                  } text-white px-8 py-3 rounded-xl transition-colors duration-200 font-medium`}
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-xl transition-colors duration-200 font-medium shadow-lg"
                 >
                   🏠 Volver al Login
                 </button>

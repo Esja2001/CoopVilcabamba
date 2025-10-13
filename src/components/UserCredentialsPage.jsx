@@ -254,8 +254,8 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
     return (
       <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
         </div>
 
         <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -274,16 +274,16 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
             </div>
 
             <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
               
               <div className="text-center mb-6 relative z-10">
                 <div className="w-24 h-24 mx-auto mb-4"><img src="/assets/images/isocoaclasnaves.png" alt="Logo" className="w-full h-full object-contain" /></div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-1">Términos y Condiciones</h2>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
                 <p className="text-slate-600 text-xs font-medium">Paso 2 de 4: Aceptar términos del servicio</p>
                 {registrationData.clienteData && (
-                  <div className="mt-4 bg-blue-50/90 border border-blue-200/70 rounded-xl p-3">
-                    <p className="text-blue-900 text-sm font-bold">
+                  <div className="mt-4 bg-cyan-50/90 border border-cyan-200/70 rounded-xl p-3">
+                    <p className="text-cyan-900 text-sm font-bold">
                       <span className="font-bold">{registrationData.clienteData.nomcli} {registrationData.clienteData.apecli}</span> • Cédula: {registrationData.cedula}
                     </p>
                   </div>
@@ -293,11 +293,11 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               {alert && (
                 <div className="mb-4 relative z-10">
                   <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
-                    alert.type === "success" ? "bg-blue-50/80 border-blue-200/60 text-blue-800" : "bg-red-50/80 border-red-200/60 text-red-800"
+                    alert.type === "success" ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800" : "bg-red-50/80 border-red-200/60 text-red-800"
                   }`}>
                     <div className="flex items-center">
                       <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                        alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                        alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                       }`}>
                         <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                           {alert.type === "success" ? <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /> : <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />}
@@ -399,7 +399,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 <button
                   onClick={handleTermsSubmit}
                   disabled={!acceptedTerms}
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                 >
                   CONTINUAR CON CREDENCIALES
                 </button>
@@ -415,8 +415,8 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -435,8 +435,8 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
 
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             <div className="text-center mb-6 relative z-10">
               <div className="w-24 h-24 mx-auto mb-4">
@@ -445,13 +445,13 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               <h2 className="text-2xl font-bold text-slate-800 mb-1">
                 Crear Credenciales
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 Paso 2 de 4: Configure su usuario y contraseña
               </p>
               {registrationData.clienteData && (
-                <div className="mt-4 bg-blue-50/90 border border-blue-200/70 rounded-xl p-3">
-                  <p className="text-blue-900 text-sm font-bold">
+                <div className="mt-4 bg-cyan-50/90 border border-cyan-200/70 rounded-xl p-3">
+                  <p className="text-cyan-900 text-sm font-bold">
                     <span className="font-bold">{registrationData.clienteData.nomcli} {registrationData.clienteData.apecli}</span> • Cédula: {registrationData.cedula}
                   </p>
                 </div>
@@ -462,12 +462,12 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                   alert.type === "success"
-                    ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                    ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                     : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === "success" ? (
@@ -491,7 +491,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 </label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
                     </svg>
                   </div>
@@ -502,9 +502,9 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                     onChange={(e) => handleInputChange('username', e.target.value)}
                     placeholder="Mínimo 6 caracteres"
                     disabled={isLoading}
-                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                       validationStatus.username.valid === false ? 'border-red-400 ring-2 ring-red-200' :
-                      validationStatus.username.valid === true ? 'border-blue-400 ring-2 ring-blue-200' :
+                      validationStatus.username.valid === true ? 'border-cyan-400 ring-2 ring-cyan-200' :
                       'border-slate-300 hover:border-slate-400'
                     }`}
                   />
@@ -512,12 +512,12 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                   {/* Indicador de validación */}
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                     {validationStatus.username.checking ? (
-                      <svg className="animate-spin h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 714 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
                     ) : validationStatus.username.valid === true ? (
-                      <svg className="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <svg className="h-4 w-4 text-cyan-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
                     ) : validationStatus.username.valid === false ? (
@@ -532,7 +532,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 {validationStatus.username.message && (
                   <p className={`text-xs mt-1 font-medium ${
                     validationStatus.username.valid === false ? 'text-red-600' :
-                    validationStatus.username.valid === true ? 'text-blue-600' :
+                    validationStatus.username.valid === true ? 'text-cyan-600' :
                     'text-yellow-600'
                   }`}>
                     {validationStatus.username.message}
@@ -593,7 +593,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 {validationStatus.password.message && (
                   <p className={`text-xs mt-1 font-medium ${
                     validationStatus.password.valid === false ? 'text-red-600' :
-                    validationStatus.password.valid === true ? 'text-blue-600' :
+                    validationStatus.password.valid === true ? 'text-cyan-600' :
                     'text-yellow-600'
                   }`}>
                     {validationStatus.password.message}
@@ -608,7 +608,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 </label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
                     </svg>
                   </div>
@@ -619,7 +619,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                     onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                     placeholder="Confirme su contraseña"
                     disabled={isLoading || !formData.password}
-                    className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                    className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                       errors.confirmPassword ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 hover:border-slate-400'
                     }`}
                   />
@@ -631,7 +631,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 {/* Password match indicator */}
                 {formData.password && formData.confirmPassword && (
                   <div className={`text-xs mt-1 font-medium ${
-                    formData.password === formData.confirmPassword ? 'text-blue-600' : 'text-red-600'
+                    formData.password === formData.confirmPassword ? 'text-cyan-600' : 'text-red-600'
                   }`}>
                     {formData.password === formData.confirmPassword ? 
                       '✓ Las contraseñas coinciden' : 
@@ -642,9 +642,9 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               </div>
 
               {/* Password requirements */}
-              <div className="bg-blue-50/80 border-blue-200/60 text-blue-800 rounded-lg p-3 border backdrop-blur-sm">
-                <p className="text-blue-800 text-sm font-bold mb-2">Requisitos de la contraseña:</p>
-                <ul className="text-blue-700 text-xs space-y-1 font-medium">
+              <div className="bg-cyan-50/80 border-cyan-200/60 text-cyan-800 rounded-lg p-3 border backdrop-blur-sm">
+                <p className="text-cyan-800 text-sm font-bold mb-2">Requisitos de la contraseña:</p>
+                <ul className="text-cyan-700 text-xs space-y-1 font-medium">
                   <li>• Al menos 8 caracteres</li>
                   <li>• Una letra mayúscula</li>
                   <li>• Una letra minúscula</li>
@@ -658,7 +658,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 <button
                   type="submit"
                   disabled={isLoading || !formData.username || !formData.password || !formData.confirmPassword}
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                   {isLoading ? (
@@ -690,7 +690,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
           <div className="mt-6 backdrop-blur-xl bg-white/95 rounded-xl p-4 border border-white/50">
             <div className="flex items-center space-x-3">
               <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-blue-700" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="h-5 w-5 text-cyan-700" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
                 </svg>
               </div>

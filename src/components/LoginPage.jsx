@@ -307,9 +307,9 @@ const LoginPage = ({
       
       {/* Elementos decorativos sutiles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-600/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
       </div>
 
       <div className="min-h-screen flex relative z-10">
@@ -334,9 +334,9 @@ const LoginPage = ({
               <h1 className="text-4xl font-extrabold leading-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
                 Tu futuro financiero,
                 <br />
-                <span className="text-blue-300">a un clic de distancia.</span>
+                <span className="text-cyan-300">a un clic de distancia.</span>
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full shadow-lg my-4"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full shadow-lg my-4"></div>
               <p className="text-lg leading-relaxed max-w-md" style={{ textShadow: '0 1px 5px rgba(0,0,0,0.5)' }}>
                 Bienvenido a nuestra plataforma digital. Accede de forma segura y gestiona tus finanzas con total confianza y facilidad.
               </p>
@@ -374,14 +374,14 @@ const LoginPage = ({
             <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
               
               {/* Efectos de brillo sutiles */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
 
               <div className="text-center mb-6 relative z-10">
                 <h2 className="text-2xl font-bold text-slate-800 mb-1">
                   Acceder a su cuenta
                 </h2>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
                 <p className="text-slate-600 text-xs font-medium">
                   Ingrese sus credenciales para continuar
                 </p>
@@ -423,7 +423,7 @@ const LoginPage = ({
                   </label>
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
                       </svg>
                     </div>
@@ -437,7 +437,7 @@ const LoginPage = ({
                       placeholder="Ingrese su usuario"
                       autoComplete="username"
                       disabled={isLoading}
-                      className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                      className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                         errors.username ? "border-red-400 ring-2 ring-red-200" : "border-slate-300 hover:border-slate-400"
                       }`}
                     />
@@ -461,7 +461,7 @@ const LoginPage = ({
                           onBlockUser();
                         }
                       }}
-                      className={`text-blue-600 hover:text-blue-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
+                      className={`text-cyan-600 hover:text-cyan-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
                         isLoading ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     >
@@ -477,7 +477,7 @@ const LoginPage = ({
                   </label>
                   <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
                       </svg>
                     </div>
@@ -491,7 +491,7 @@ const LoginPage = ({
                       placeholder="Ingrese su contraseña"
                       autoComplete="current-password"
                       disabled={isLoading}
-                      className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                      className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                         errors.password ? "border-red-400 ring-2 ring-red-200" : "border-slate-300 hover:border-slate-400"
                       }`}
                     />
@@ -531,7 +531,7 @@ const LoginPage = ({
                           onForgotPassword();
                         }
                       }}
-                      className={`text-blue-600 hover:text-blue-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
+                      className={`text-cyan-600 hover:text-cyan-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
                         isLoading ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     >
@@ -549,7 +549,7 @@ const LoginPage = ({
                       type="checkbox"
                       checked={formData.rememberMe}
                       onChange={handleInputChange}
-                      className="h-3 w-3 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
+                      className="h-3 w-3 text-cyan-600 focus:ring-cyan-500 border-slate-300 rounded"
                     />
                     <label htmlFor="rememberMe" className="ml-2 text-xs font-medium text-slate-700">
                       Recordar mi usuario
@@ -562,7 +562,7 @@ const LoginPage = ({
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                     
@@ -596,7 +596,7 @@ const LoginPage = ({
                         onSecurityQuestionsRegister();
                       }
                     }}
-                    className={`inline-flex items-center space-x-1 text-blue-600 hover:text-blue-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
+                    className={`inline-flex items-center space-x-1 text-cyan-600 hover:text-cyan-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
                       isLoading ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                   >
@@ -626,7 +626,7 @@ const LoginPage = ({
                           onRegister();
                         }
                       }}
-                      className={`text-blue-600 hover:text-blue-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
+                      className={`text-cyan-600 hover:text-cyan-800 transition-colors duration-300 font-semibold hover:underline decoration-2 underline-offset-2 ${
                         isLoading ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     >
@@ -637,13 +637,13 @@ const LoginPage = ({
 
                 {/* Enlaces de servicio compactos */}
                 <div className="flex justify-center space-x-4 text-xs pt-2">
-                  <a href="#" className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
+                  <a href="#" className="text-cyan-600 hover:text-cyan-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
                     Ayuda
                   </a>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
+                  <a href="#" className="text-cyan-600 hover:text-cyan-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
                     Privacidad
                   </a>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
+                  <a href="#" className="text-cyan-600 hover:text-cyan-800 font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2">
                     Términos
                   </a>
                 </div>
@@ -653,11 +653,11 @@ const LoginPage = ({
             {/* Footer compacto */}
             <div className="text-center">
               <div className="flex items-center justify-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-sm"></div>
-                <p className="text-xs text-white font-semibold drop-shadow-md">
-                  © 2024 Cooperativa Las Naves. Todos los derechos reservados.
-                </p>
                 <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-sm"></div>
+                <p className="text-xs text-white font-semibold drop-shadow-md">
+                  © 2024 Cooperativa de ahorro y credito Vilcabamba. Todos los derechos reservados.
+                </p>
+                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-sm"></div>
               </div>
             </div>
           </div>
