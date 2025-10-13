@@ -175,9 +175,9 @@ const RegisterPage = ({ onNext, onBack }) => {
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-16 w-24 h-24 bg-blue-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-blue-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-16 w-24 h-24 bg-cyan-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-cyan-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -203,8 +203,8 @@ const RegisterPage = ({ onNext, onBack }) => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             <div className="text-center mb-6 relative z-10">
@@ -214,7 +214,7 @@ const RegisterPage = ({ onNext, onBack }) => {
               <h2 className="text-2xl font-bold text-slate-800 mb-1">
                 Registrar Nuevo Usuario
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 Paso 1 de 4: Validar tu identidad
               </p>
@@ -225,12 +225,12 @@ const RegisterPage = ({ onNext, onBack }) => {
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                   alert.type === 'success'
-                    ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                    ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                     : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === 'success' ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === 'success' ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === 'success' ? (
@@ -259,7 +259,7 @@ const RegisterPage = ({ onNext, onBack }) => {
                   onChange={handleIdentificacionChange}
                   placeholder="Ingrese su cédula (10 dígitos) o RUC (13 dígitos)"
                   disabled={isLoading}
-                  className={`block w-full px-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                  className={`block w-full px-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                     errors.cedula 
                       ? 'border-red-400 ring-2 ring-red-200' 
                       : 'border-slate-300 hover:border-slate-400'
@@ -272,11 +272,11 @@ const RegisterPage = ({ onNext, onBack }) => {
                   <div className="mt-2">
                     <p className="text-slate-600 text-xs">
                       Dígitos ingresados: {cedula.length}/13
-                      {cedula.length === 10 && <span className="text-blue-600 ml-2 font-medium">→ Cédula</span>}
-                      {cedula.length === 13 && <span className="text-blue-600 ml-2 font-medium">→ RUC</span>}
+                      {cedula.length === 10 && <span className="text-cyan-600 ml-2 font-medium">→ Cédula</span>}
+                      {cedula.length === 13 && <span className="text-cyan-600 ml-2 font-medium">→ RUC</span>}
                     </p>
                     {(cedula.length === 10 || cedula.length === 13) && !errors.cedula && (
-                      <p className="text-blue-600 text-xs font-medium">✓ Formato válido</p>
+                      <p className="text-cyan-600 text-xs font-medium">✓ Formato válido</p>
                     )}
                   </div>
                 )}
@@ -287,7 +287,7 @@ const RegisterPage = ({ onNext, onBack }) => {
                 <button
                   type="submit"
                   disabled={isLoading || !cedula || (cedula.length !== 10 && cedula.length !== 13)}
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                   {isLoading ? (

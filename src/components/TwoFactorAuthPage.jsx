@@ -289,9 +289,9 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
       
       {/* Elementos decorativos sutiles - IDÉNTICO A CODIGOPAGE */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-600/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -316,8 +316,8 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles - IDÉNTICO A CODIGOPAGE */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - IDÉNTICO A CODIGOPAGE */}
             <div className="text-center mb-6 relative z-10">
@@ -327,7 +327,7 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
               <h2 className="text-2xl font-bold text-slate-800 mb-1">
                 Verificación de Seguridad
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 Ingrese el código de 6 dígitos enviado a su celular
               </p>
@@ -343,12 +343,12 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
                   alert.type === "success"
-                    ? "bg-blue-50/80 border-blue-200/60 text-blue-800"
+                    ? "bg-cyan-50/80 border-cyan-200/60 text-cyan-800"
                     : "bg-red-50/80 border-red-200/60 text-red-800"
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === "success" ? "bg-blue-100/80" : "bg-red-100/80"
+                      alert.type === "success" ? "bg-cyan-100/80" : "bg-red-100/80"
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === "success" ? (
@@ -388,7 +388,7 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
                       onChange={e => handleInputChange(index, e.target.value)}
                       onKeyDown={e => handleKeyDown(index, e)}
                       onPaste={handlePaste}
-                      className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
+                      className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
                       disabled={isValidating}
                     />
                   ))}
@@ -406,7 +406,7 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
                 <button
                   type="submit"
                   disabled={isValidating || securityCode.length !== 6}
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:ring-blue-500/50"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed bg-cyan-600 hover:bg-cyan-700 focus:ring-cyan-500/50"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                   
@@ -435,7 +435,7 @@ const TwoFactorAuthPage = ({ twoFactorData, onTwoFactorSuccess, onBack }) => {
                     onClick={handleResendCode}
                     disabled={isValidating}
                     className={`w-full flex justify-center py-2 px-4 text-xs font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2 ${
-                      isValidating ? 'text-slate-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                      isValidating ? 'text-slate-400 cursor-not-allowed' : 'text-cyan-600 hover:text-cyan-800'
                     }`}
                   >
                     Reenviar código

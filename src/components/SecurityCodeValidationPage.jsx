@@ -266,9 +266,9 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       {/* Elementos decorativos sutiles - siguiendo patrón de CodigoPage */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-600/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "4s" }}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -294,8 +294,8 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             <div className="text-center mb-6 relative z-10">
@@ -307,7 +307,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                  currentStep === 'error' ? 'Error en el Proceso' : 
                  'Código de Seguridad'}
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-600 text-xs font-medium">
                 {currentStep === 'success' ? 'Sus preguntas de seguridad han sido registradas exitosamente' :
                  currentStep === 'error' ? 'Ocurrió un problema durante el registro' :
@@ -326,14 +326,14 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
             {alert && (
               <div className="mb-6">
                 <div className={`p-4 rounded-lg border backdrop-blur-sm transition-all duration-300 ${
-                  alert.type === 'success' ? 'bg-blue-50/80 border-blue-200/60 text-blue-800' : 
+                  alert.type === 'success' ? 'bg-cyan-50/80 border-cyan-200/60 text-cyan-800' : 
                   alert.type === 'error' ? 'bg-red-50/80 border-red-200/60 text-red-800' :
-                  'bg-blue-50/80 border-blue-200/60 text-blue-800'
+                  'bg-cyan-50/80 border-cyan-200/60 text-cyan-800'
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === 'success' ? 'bg-blue-100/80' : 
-                      alert.type === 'error' ? 'bg-red-100/80' : 'bg-blue-100/80'
+                      alert.type === 'success' ? 'bg-cyan-100/80' : 
+                      alert.type === 'error' ? 'bg-red-100/80' : 'bg-cyan-100/80'
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === 'success' ? (
@@ -375,7 +375,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                         onChange={e => handleInputChange(index, e.target.value)}
                         onKeyDown={e => handleKeyDown(index, e)}
                         onPaste={handlePaste}
-                        className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
+                        className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
                         disabled={isValidating || isSaving}
                       />
                     ))}
@@ -393,7 +393,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                   <button
                     type="submit"
                     disabled={isValidating || isSaving || securityCode.length !== 6}
-                    className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:ring-blue-500/50`}
+                    className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed bg-cyan-600 hover:bg-cyan-700 focus:ring-cyan-500/50`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
                     
@@ -430,7 +430,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                       onClick={handleResendCode}
                       disabled={isValidating || isSaving}
                       className={`w-full flex justify-center py-2 px-4 text-xs font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2 ${
-                        isValidating || isSaving ? 'text-slate-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                        isValidating || isSaving ? 'text-slate-400 cursor-not-allowed' : 'text-cyan-600 hover:text-cyan-800'
                       }`}
                     >
                       Reenviar código
@@ -445,7 +445,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
             {/* Estado: Éxito - ESTILO ACTUALIZADO COMO CODIGOPAGE */}
             {currentStep === 'success' && (
               <div className="text-center py-12">
-                <svg className="w-16 h-16 text-blue-400 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-16 h-16 text-cyan-400 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                 </svg>
                 <h3 className="text-slate-800 text-xl font-bold mb-2">
@@ -455,7 +455,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                   Sus preguntas de seguridad han sido registradas exitosamente y serán utilizadas para validar transacciones importantes en su cuenta.
                 </p>
                 
-                <div className="bg-blue-500/20 border border-blue-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
+                <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
                   <p className="text-slate-800 text-sm">
                     <strong>Importante:</strong> Memorice sus respuestas exactamente como las escribió para futuras validaciones.
                   </p>
@@ -470,7 +470,7 @@ const SecurityCodeValidationPage = ({ flowData, onComplete, onBack }) => {
                       });
                     }
                   }}
-                  className="bg-blue-600 hover:bg-blue-700 shadow-blue-500/20 text-white px-8 py-3 rounded-xl transition-colors duration-200 font-medium"
+                  className="bg-cyan-600 hover:bg-cyan-700 shadow-cyan-500/20 text-white px-8 py-3 rounded-xl transition-colors duration-200 font-medium"
                 >
                   🏠 Continuar
                 </button>

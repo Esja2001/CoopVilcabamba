@@ -166,9 +166,9 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-purple-500/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-16 w-24 h-24 bg-purple-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-purple-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-16 w-24 h-24 bg-cyan-400/5 rounded-lg rotate-45 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-cyan-500/10 rounded-full animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
@@ -194,8 +194,8 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-5 shadow-2xl border border-white/50 relative overflow-hidden">
             
             {/* Efectos de brillo sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-cyan-50/30 pointer-events-none rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
             
             {/* Header - ESTILO ACTUALIZADO COMO SECURITYQUESTIONSPAGE */}
             <div className="text-center mb-5 relative z-10">
@@ -205,13 +205,13 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
               <h2 className="text-xl font-bold text-slate-900 mb-1">
                 Preguntas de Seguridad
               </h2>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
               <p className="text-slate-800 text-sm font-medium">
                 Paso 3 de 4: Configure 3 preguntas de seguridad
               </p>
               {registrationData.clienteData && (
-                <div className="mt-3 bg-blue-50/90 border-blue-200/70 text-blue-900 rounded-lg p-3 border backdrop-blur-sm">
-                  <p className="text-blue-900 text-sm font-bold">
+                <div className="mt-3 bg-cyan-50/90 border-cyan-200/70 text-cyan-900 rounded-lg p-3 border backdrop-blur-sm">
+                  <p className="text-cyan-900 text-sm font-bold">
                     <span className="font-bold">{registrationData.clienteData.nomcli} {registrationData.clienteData.apecli}</span> • Usuario: {registrationData.username}
                   </p>
                 </div>
@@ -222,14 +222,14 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
             {alert && (
               <div className="mb-4 relative z-10">
                 <div className={`p-3 rounded-lg border transition-all duration-500 backdrop-blur-sm ${
-                  alert.type === 'success' ? 'bg-blue-50/80 border-blue-200/60 text-blue-800' : 
+                  alert.type === 'success' ? 'bg-cyan-50/80 border-cyan-200/60 text-cyan-800' : 
                   alert.type === 'error' ? 'bg-red-50/80 border-red-200/60 text-red-800' :
-                  'bg-blue-50/80 border-blue-200/60 text-blue-800'
+                  'bg-cyan-50/80 border-cyan-200/60 text-cyan-800'
                 }`}>
                   <div className="flex items-center">
                     <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-                      alert.type === 'success' ? 'bg-blue-100/80' : 
-                      alert.type === 'error' ? 'bg-red-100/80' : 'bg-blue-100/80'
+                      alert.type === 'success' ? 'bg-cyan-100/80' : 
+                      alert.type === 'error' ? 'bg-red-100/80' : 'bg-cyan-100/80'
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         {alert.type === 'success' ? (
@@ -252,7 +252,7 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
               {selectedQuestions.map((question, index) => (
                 <div key={index} className="bg-white/95 rounded-lg p-4 border border-slate-200/60 backdrop-blur-sm relative z-10">
                   <h4 className="text-slate-900 font-bold mb-3 flex items-center">
-                    <span className="w-7 h-7 bg-blue-100/90 rounded-lg flex items-center justify-center text-sm mr-3 text-blue-700 font-bold">
+                    <span className="w-7 h-7 bg-cyan-100/90 rounded-lg flex items-center justify-center text-sm mr-3 text-cyan-700 font-bold">
                       {index + 1}
                     </span>
                     Pregunta {index + 1}
@@ -267,7 +267,7 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
                         value={question.codigo}
                         onChange={(e) => handleQuestionChange(index, 'codigo', e.target.value)}
                         disabled={isSaving}
-                        className={`w-full px-3 py-2.5 rounded-lg bg-white text-slate-900 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 font-medium text-sm shadow-sm hover:shadow-md ${
+                        className={`w-full px-3 py-2.5 rounded-lg bg-white text-slate-900 border-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 font-medium text-sm shadow-sm hover:shadow-md ${
                           errors[`question_${index}_codigo`] 
                             ? 'border-red-400 ring-2 ring-red-400/50' 
                             : 'border-slate-300'
@@ -296,7 +296,7 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
                         onChange={(e) => handleQuestionChange(index, 'respuesta', e.target.value)}
                         placeholder="Ingrese su respuesta (mínimo 2 caracteres)"
                         disabled={isSaving || !question.codigo}
-                        className={`w-full px-3 py-2.5 rounded-lg bg-white text-slate-900 placeholder-slate-500 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 font-medium text-sm shadow-sm hover:shadow-md ${
+                        className={`w-full px-3 py-2.5 rounded-lg bg-white text-slate-900 placeholder-slate-500 border-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 font-medium text-sm shadow-sm hover:shadow-md ${
                           errors[`question_${index}_respuesta`] 
                             ? 'border-red-400 ring-2 ring-red-200' 
                             : 'border-slate-300 hover:border-slate-400'
@@ -335,7 +335,7 @@ const SecurityQuestionsPage1 = ({ registrationData, onNext, onBack }) => {
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
                 >
                   {isSaving ? (
                     <>

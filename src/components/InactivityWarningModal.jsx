@@ -123,7 +123,7 @@ const InactivityWarningModal = ({
                   cy="50"
                   r="45"
                   fill="none"
-                  stroke={isCritical ? '#ef4444' : isUrgent ? '#f59e0b' : '#3b82f6'}
+                  stroke={isCritical ? '#ef4444' : isUrgent ? '#f59e0b' : '#06b6d4'}
                   strokeWidth="4"
                   strokeLinecap="round"
                   strokeDasharray={strokeDasharray}
@@ -221,7 +221,7 @@ const InactivityWarningModal = ({
                 focus:outline-none focus:ring-4
                 ${isCritical || isUrgent
                   ? 'bg-white text-gray-800 hover:bg-gray-100 focus:ring-white/50 shadow-lg'
-                  : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500/50 shadow-md'
+                  : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:ring-cyan-500/50 shadow-md'
                 }
               `}
             >

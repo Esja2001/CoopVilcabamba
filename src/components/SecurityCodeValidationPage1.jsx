@@ -225,8 +225,8 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
   const commonUIWrapper = (content, showBackButton = true) => (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" style={backgroundStyle}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
       <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
         <div className={`w-full max-w-md transition-all duration-1000 ${isAnimated ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-0'}`}>
@@ -251,14 +251,14 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
   const alertUI = alert && (
     <div className="mb-6">
       <div className={`p-4 rounded-lg border backdrop-blur-sm transition-all duration-300 ${
-        alert.type === 'success' ? 'bg-blue-50/80 border-blue-200/60 text-blue-800' : 
+        alert.type === 'success' ? 'bg-cyan-50/80 border-cyan-200/60 text-cyan-800' : 
         alert.type === 'error' ? 'bg-red-50/80 border-red-200/60 text-red-800' :
-        'bg-blue-50/80 border-blue-200/60 text-blue-800'
+        'bg-cyan-50/80 border-cyan-200/60 text-cyan-800'
       }`}>
         <div className="flex items-center">
           <div className={`w-6 h-6 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm ${
-            alert.type === 'success' ? 'bg-blue-100/80' : 
-            alert.type === 'error' ? 'bg-red-100/80' : 'bg-blue-100/80'
+            alert.type === 'success' ? 'bg-cyan-100/80' : 
+            alert.type === 'error' ? 'bg-red-100/80' : 'bg-cyan-100/80'
           }`}>
             <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
               {alert.type === 'success' ? <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/> :
@@ -276,22 +276,22 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
   if (currentStep === 'request') {
     const requestContent = (
       <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
         <div className="text-center mb-6 relative z-10">
           <div className="w-24 h-24 mx-auto mb-4"><img src="/assets/images/isocoaclasnaves.png" alt="Logo" className="w-full h-full object-contain" /></div>
           <h2 className="text-2xl font-bold text-slate-800 mb-1">Validación Final</h2>
-          <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+          <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
           <p className="text-slate-600 text-xs font-medium">Paso 4 de 4: Confirmar su identidad</p>
         </div>
         
         {alertUI}
 
-        <div className="bg-blue-50/90 rounded-xl p-6 border border-blue-200/70 mb-6">
-          <h3 className="text-blue-900 font-bold mb-3 flex items-center">
-            <svg className="w-5 h-5 text-blue-700 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"/></svg>
+        <div className="bg-cyan-50/90 rounded-xl p-6 border border-cyan-200/70 mb-6">
+          <h3 className="text-cyan-900 font-bold mb-3 flex items-center">
+            <svg className="w-5 h-5 text-cyan-700 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"/></svg>
             Verificación de Seguridad
           </h3>
-          <div className="text-blue-800 text-sm space-y-2 font-medium">
+          <div className="text-cyan-800 text-sm space-y-2 font-medium">
             <p>Para completar su registro, se enviará un código de seguridad a su teléfono para confirmar su identidad.</p>
           </div>
         </div>
@@ -309,7 +309,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
           <button
             onClick={handleRequestCode}
             disabled={isLoading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
           >
             {isLoading ? 'ENVIANDO CÓDIGO...' : 'SOLICITAR CÓDIGO DE SEGURIDAD'}
           </button>
@@ -323,11 +323,11 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
   if (currentStep === 'validate') {
     const validateContent = (
       <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
         <div className="text-center mb-6 relative z-10">
           <div className="w-24 h-24 mx-auto mb-4"><img src="/assets/images/isocoaclasnaves.png" alt="Logo" className="w-full h-full object-contain" /></div>
           <h2 className="text-2xl font-bold text-slate-800 mb-1">Código de Seguridad</h2>
-          <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-2"></div>
+          <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mx-auto mb-2"></div>
           <p className="text-slate-600 text-xs font-medium">Ingrese el código de 6 dígitos enviado a su celular.</p>
         </div>
 
@@ -350,7 +350,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
                   onChange={e => handleInputChange(index, e.target.value)}
                   onKeyDown={e => handleKeyDown(index, e)}
                   onPaste={handlePaste}
-                  className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
+                  className="w-12 h-12 text-center text-xl font-bold bg-white/90 border-2 border-slate-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400/50 transition-all duration-200 hover:border-slate-300/60 backdrop-blur-sm shadow-sm"
                   disabled={isLoading}
                 />
               ))}
@@ -362,7 +362,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
             <button
               type="submit"
               disabled={isLoading || securityCode.length !== 6}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:opacity-75 disabled:cursor-not-allowed"
             >
               {isLoading ? 'PROCESANDO...' : 'COMPLETAR REGISTRO'}
             </button>
@@ -378,7 +378,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
                 onClick={handleResendCode}
                 disabled={isLoading}
                 className={`w-full flex justify-center py-2 px-4 text-xs font-semibold transition-colors duration-200 hover:underline decoration-2 underline-offset-2 ${
-                  isLoading ? 'text-slate-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                  isLoading ? 'text-slate-400 cursor-not-allowed' : 'text-cyan-600 hover:text-cyan-800'
                 }`}
               >
                 Reenviar código
