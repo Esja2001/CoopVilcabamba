@@ -43,7 +43,7 @@ const PageSucces = ({ onComplete, transferType = 'internal' }) => {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-green-200/40 rounded-full animate-pulse"
+            className="absolute w-2 h-2 bg-sky-200/40 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -59,15 +59,15 @@ const PageSucces = ({ onComplete, transferType = 'internal' }) => {
         {/* Círculo principal con check animado */}
         <div className="relative mx-auto mb-8 flex justify-center">
           {/* Círculo de fondo que crece */}
-          <div className="w-32 h-32 bg-green-100 rounded-full animate-ping absolute inset-0"></div>
-          <div className="w-32 h-32 bg-green-200/50 rounded-full animate-pulse absolute inset-0 animation-delay-500"></div>
+          <div className="w-32 h-32 bg-sky-100 rounded-full animate-ping absolute inset-0"></div>
+          <div className="w-32 h-32 bg-sky-200/50 rounded-full animate-pulse absolute inset-0 animation-delay-500"></div>
           
           {/* Círculo principal */}
           <div className="relative w-32 h-32 bg-white rounded-full shadow-2xl animate-bounce-slow border-4 border-green-200">
             {/* Check mark animado - PERFECTAMENTE CENTRADO */}
             <div className="absolute inset-0 flex items-center justify-center">
               <svg 
-                className="w-14 h-14 text-green-500" 
+                className="w-14 h-14 text-sky-500" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor"
@@ -104,16 +104,16 @@ const PageSucces = ({ onComplete, transferType = 'internal' }) => {
 
           {/* Íconos de cuentas */}
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center animate-pulse shadow-lg">
-              <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+            <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center animate-pulse shadow-lg">
+              <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9"/>
               </svg>
             </div>
           </div>
 
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center animate-pulse animation-delay-300 shadow-lg">
-              <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+            <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center animate-pulse animation-delay-300 shadow-lg">
+              <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9"/>
               </svg>
             </div>
@@ -121,7 +121,7 @@ const PageSucces = ({ onComplete, transferType = 'internal' }) => {
 
           {/* Moneda animada que se mueve */}
           <div className="absolute top-1/2 transform -translate-y-1/2 animate-money-transfer">
-            <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+            <div className="w-8 h-8 bg-sky-400 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
               <span className="text-white font-bold text-xs">$</span>
             </div>
           </div>
@@ -144,7 +144,7 @@ const PageSucces = ({ onComplete, transferType = 'internal' }) => {
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-sky-400 rounded-full animate-bounce"
                   style={{ animationDelay: `${i * 0.2}s` }}
                 />
               ))}

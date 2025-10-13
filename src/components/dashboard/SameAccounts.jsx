@@ -569,9 +569,9 @@ const SameAccounts = ({ onBack, openWindow }) => {
           {/* Stepper */}
           <div className="flex items-center">
             {/* Paso 1 - ACTIVO */}
-            <div className="flex items-center text-blue-600">
-              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">1</div>
-              <span className="ml-2 text-sm font-medium text-blue-600">Formulario</span>
+            <div className="flex items-center text-sky-600">
+              <div className="w-8 h-8 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-sm">1</div>
+              <span className="ml-2 text-sm font-medium text-sky-600">Formulario</span>
             </div>
 
             {/* Línea conectora 1-2 */}
@@ -604,7 +604,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                 value="same-bank"
                 checked={transferType === 'same-bank'}
                 onChange={(e) => handleTransferTypeChange(e.target.value)}
-                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 focus:ring-2"
+                className="w-4 h-4 text-sky-600 border-slate-300 focus:ring-blue-500 focus:ring-2"
               />
               <span className="ml-2 text-sm text-slate-800 font-medium">Cuentas prestatadas</span>
             </label>
@@ -616,7 +616,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                 value="other-banks"
                 checked={transferType === 'other-banks'}
                 onChange={(e) => handleTransferTypeChange(e.target.value)}
-                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 focus:ring-2"
+                className="w-4 h-4 text-sky-600 border-slate-300 focus:ring-blue-500 focus:ring-2"
               />
               <span className="ml-2 text-sm text-slate-800 font-medium">Cuentas en otros bancos</span>
             </label>
@@ -639,7 +639,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
         {loading && (
           <div className="text-center py-12">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
-              <svg className="animate-spin h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
               </svg>
@@ -655,7 +655,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
             {selectedFromAccount && selectedToAccount && (
               <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-lg font-bold text-white mr-4">
+                  <div className="w-12 h-12 rounded-full bg-sky-600 flex items-center justify-center text-lg font-bold text-white mr-4">
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9Z" />
                     </svg>
@@ -684,7 +684,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                         name="fromAccount"
                         value={formData.fromAccount}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 ${errors.fromAccount ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 ${errors.fromAccount ? 'border-red-500' : 'border-slate-300'
                           }`}
                       >
                         <option value="">Selecciona una opción</option>
@@ -709,7 +709,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                         value={formData.toAccount}
                         onChange={handleInputChange}
                         disabled={!formData.fromAccount}
-                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.toAccount ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.toAccount ? 'border-red-500' : 'border-slate-300'
                           }`}
                       >
                         <option value="">
@@ -741,7 +741,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                         onChange={handleInputChange}
                         placeholder="0.00"
                         disabled={!formData.fromAccount || !formData.toAccount}
-                        className={`w-full pl-7 pr-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.amount ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full pl-7 pr-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.amount ? 'border-red-500' : 'border-slate-300'
                           }`}
                       />
                     </div>
@@ -762,7 +762,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                       onChange={handleInputChange}
                       placeholder="Transferencia entre cuentas propias"
                       maxLength="40"
-                      className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 ${errors.description ? 'border-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 ${errors.description ? 'border-red-500' : 'border-slate-300'
                         }`}
                     />
                     {errors.description && (
@@ -783,7 +783,7 @@ const SameAccounts = ({ onBack, openWindow }) => {
                       !formData.description ||
                       hasInsufficientFundsError()
                     }
-                    className="w-full md:w-auto flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
+                    className="w-full md:w-auto flex-1 bg-sky-600 hover:bg-sky-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
                   >
                     {validatingFunds ? (
                       <>

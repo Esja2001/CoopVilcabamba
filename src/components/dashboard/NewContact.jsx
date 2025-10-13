@@ -627,7 +627,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center py-12">
             {/* Icono de éxito */}
-            <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
+            <div className="w-20 h-20 bg-gradient-to-r from-sky-500 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-sky-500/20">
               <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
               </svg>
@@ -638,34 +638,34 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
             <p className="text-slate-600 mb-6">El beneficiario se ha guardado correctamente</p>
 
             {/* Información del contacto creado */}
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 mb-8 backdrop-blur-sm text-left">
-              <h3 className="text-lg font-semibold text-emerald-800 mb-4 text-center">Contacto registrado</h3>
+            <div className="bg-sky-50 border border-sky-200 rounded-xl p-6 mb-8 backdrop-blur-sm text-left">
+              <h3 className="text-lg font-semibold text-sky-800 mb-4 text-center">Contacto registrado</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-emerald-700 font-medium">Nombre:</span>
+                  <span className="text-sky-700 font-medium">Nombre:</span>
                   <span className="text-slate-700">{createdContactData?.beneficiaryName || verificationResult?.beneficiaryName}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-emerald-700 font-medium">Identificación:</span>
+                  <span className="text-sky-700 font-medium">Identificación:</span>
                   <span className="text-slate-700">{createdContactData?.identificationNumber || formData.identificationNumber}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-emerald-700 font-medium">Banco:</span>
+                  <span className="text-sky-700 font-medium">Banco:</span>
                   <span className="text-slate-700">{createdContactData?.bankName}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-emerald-700 font-medium">Cuenta:</span>
+                  <span className="text-sky-700 font-medium">Cuenta:</span>
                   <span className="text-slate-700">{createdContactData?.accountTypeName} - {createdContactData?.accountNumber || formData.accountNumber}</span>
                 </div>
                 {createdContactData?.email && (
                   <div className="flex justify-between items-center">
-                    <span className="text-emerald-700 font-medium">Email:</span>
+                    <span className="text-sky-700 font-medium">Email:</span>
                     <span className="text-slate-700">{createdContactData.email}</span>
                   </div>
                 )}
                 {createdContactData?.phone && (
                   <div className="flex justify-between items-center">
-                    <span className="text-emerald-700 font-medium">Teléfono:</span>
+                    <span className="text-sky-700 font-medium">Teléfono:</span>
                     <span className="text-slate-700">{formData.countryCode} {createdContactData.phone}</span>
                   </div>
                 )}
@@ -673,9 +673,9 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
             </div>
 
             {/* Pregunta al usuario qué desea hacer */}
-            <div className="bg-blue-50/80 border border-blue-200 rounded-xl p-4 mb-6">
-              <h3 className="text-blue-800 font-medium mb-2">¿Qué deseas hacer ahora?</h3>
-              <p className="text-blue-700 text-sm">
+            <div className="bg-sky-50/80 border border-sky-200 rounded-xl p-4 mb-6">
+              <h3 className="text-sky-800 font-medium mb-2">¿Qué deseas hacer ahora?</h3>
+              <p className="text-sky-700 text-sm">
                 Puedes regresar al menú principal o proceder directamente a realizar una transferencia a este contacto
               </p>
             </div>
@@ -720,7 +720,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center py-12">
             <div className="inline-flex items-center space-x-3">
-              <svg className="animate-spin h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-8 w-8 text-sky-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 714 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
@@ -752,7 +752,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
 
         {/* Título con ícono consistente */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-500/20">
+          <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-sky-500/20">
             <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z" />
             </svg>
@@ -762,16 +762,16 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
         </div>
 
         {/* Información de ayuda con colores actualizados */}
-        <div className="bg-blue-50/80 border border-blue-200/60 rounded-xl p-4 mb-6 backdrop-blur-sm">
+        <div className="bg-sky-50/80 border border-sky-200/60 rounded-xl p-4 mb-6 backdrop-blur-sm">
           <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
               </svg>
             </div>
             <div className="flex-1">
-              <p className="text-blue-700 font-medium mb-1">Completa los datos bancarios</p>
-              <p className="text-blue-600 text-sm">
+              <p className="text-sky-700 font-medium mb-1">Completa los datos bancarios</p>
+              <p className="text-sky-600 text-sm">
                 Ingresa los datos bancarios y de identificación. Los campos personales se habilitarán automáticamente al ingresar un número de identificación válido.
               </p>
             </div>
@@ -800,7 +800,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                     onChange={handleBankSearchChange}
                     onFocus={() => setShowBankDropdown(true)}
                     placeholder="Buscar banco (ej: Pich, Las Naves)..."
-                    className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm ${errors.bankDestination ? 'border-red-500' : 'border-slate-300'
+                    className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.bankDestination ? 'border-red-500' : 'border-slate-300'
                       }`}
                   />
 
@@ -837,7 +837,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
 
                 {/* Indicador de selección actual */}
                 {formData.bankDestination && (
-                  <p className="text-emerald-600 text-sm mt-1">
+                  <p className="text-sky-600 text-sm mt-1">
                     ✓ Banco seleccionado: {banks.find(b => b.code === formData.bankDestination)?.name}
                   </p>
                 )}
@@ -852,7 +852,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                   name="accountType"
                   value={formData.accountType}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm ${errors.accountType ? 'border-red-500' : 'border-slate-300'
+                  className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.accountType ? 'border-red-500' : 'border-slate-300'
                     }`}
                 >
                   <option value="">Selecciona una opción</option>
@@ -878,7 +878,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                   value={formData.accountNumber}
                   onChange={handleInputChange}
                   placeholder="Ingresa el número de cuenta"
-                  className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm ${errors.accountNumber ? 'border-red-500' : 'border-slate-300'
+                  className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.accountNumber ? 'border-red-500' : 'border-slate-300'
                     }`}
                 />
                 {errors.accountNumber && (
@@ -905,7 +905,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                         value={type.code}
                         checked={formData.identificationType === type.code}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-green-600 bg-white border-slate-300 focus:ring-green-500 focus:ring-2"
+                        className="w-4 h-4 text-sky-600 bg-white border-slate-300 focus:ring-sky-500 focus:ring-2"
                       />
                       <span className="ml-2 text-sm text-slate-700">{type.name}</span>
                     </label>
@@ -935,12 +935,12 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                     placeholder={`Ingresa el ${getSelectedIdTypeInfo()?.name.toLowerCase() || 'número de identificación'}`}
                     disabled={!formData.identificationType}
                     maxLength={getSelectedIdTypeInfo()?.validationLength?.max || 20}
-                    className={`flex-1 px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm ${errors.identificationNumber ? 'border-red-500' : 'border-slate-300'
+                    className={`flex-1 px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm ${errors.identificationNumber ? 'border-red-500' : 'border-slate-300'
                       }`}
                   />
                   {isValidatingId && (
                     <div className="flex items-center px-3">
-                      <svg className="animate-spin h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-6 w-6 text-sky-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 714 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
@@ -948,7 +948,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                   )}
                   {isIdentificationValid && (
                     <div className="flex items-center px-3">
-                      <svg className="w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="w-6 h-6 text-sky-500" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
                       </svg>
                     </div>
@@ -967,7 +967,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                 )}
                 {
                   isIdentificationValid && !identificationError && (
-                    <p className="text-emerald-600 text-sm mt-1">✓ Identificación validada correctamente</p>
+                    <p className="text-sky-600 text-sm mt-1">✓ Identificación validada correctamente</p>
                   )
                 }
               </div>
@@ -989,7 +989,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                     value={formData.beneficiaryName}
                     onChange={handleInputChange}
                     placeholder="Ingresa el nombre completo"
-                    className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 backdrop-blur-sm ${errors.beneficiaryName ? 'border-red-500' : 'border-slate-300'
+                    className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.beneficiaryName ? 'border-red-500' : 'border-slate-300'
                       }`}
                   />
                   {errors.beneficiaryName && (
@@ -1014,7 +1014,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="ejemplo@correo.com"
-                      className={`w-full pl-10 pr-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm ${errors.email ? 'border-red-500' : 'border-slate-300'
+                      className={`w-full pl-10 pr-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.email ? 'border-red-500' : 'border-slate-300'
                         }`}
                     />
                   </div>
@@ -1035,7 +1035,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                       <button
                         type="button"
                         onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-                        className="flex items-center space-x-2 px-3 py-3 bg-white/90 border border-slate-300 rounded-xl hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm min-w-[120px]"
+                        className="flex items-center space-x-2 px-3 py-3 bg-white/90 border border-slate-300 rounded-xl hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm min-w-[120px]"
                       >
                         <span className="text-lg">{getSelectedCountry()?.flag || '🌍'}</span>
                         <span className="text-slate-700 font-medium text-sm">{getSelectedCountry()?.country.split(' ')[0]}</span>
@@ -1081,7 +1081,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="999 999 999"
-                      className={`flex-1 px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-400/50 transition-all duration-300 backdrop-blur-sm ${errors.phone ? 'border-red-500' : 'border-slate-300'
+                      className={`flex-1 px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.phone ? 'border-red-500' : 'border-slate-300'
                         }`}
                     />
                   </div>
@@ -1111,7 +1111,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                   type="button"
                   onClick={handleContinue}
                   disabled={isCreating}
-                  className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:from-slate-400 disabled:to-slate-500 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center shadow-md shadow-green-500/20"
+                  className="flex-1 bg-gradient-to-r from-sky-600 to-sky-600 hover:from-sky-700 hover:to-sky-700 disabled:from-slate-400 disabled:to-slate-500 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center shadow-md shadow-sky-500/20"
                 >
                   {isCreating ? (
                     <>

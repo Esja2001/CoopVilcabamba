@@ -443,11 +443,11 @@ const InternaTransferWindow = ({ openWindow }) => {
 
   // Vista principal optimizada para modal con fondos elegantes
   return (
-    <div className="min-h-full bg-blue-50">
+    <div className="min-h-full bg-sky-50">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header Section */}
         <div className="text-center mb-8">
-          <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
             <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11,8C11,9.66 9.66,11 8,11C6.34,11 5,9.66 5,8C5,6.34 6.34,5 8,5C9.66,5 11,6.34 11,8M14,20H2V18C2,15.79 4.69,14 8,14C11.31,14 14,15.79 14,18V20M22,12V14H13V12H22M22,8V10H13V8H22M22,4V6H13V4H22Z" />
             </svg>
@@ -459,9 +459,9 @@ const InternaTransferWindow = ({ openWindow }) => {
         <div className="flex justify-center gap-4 mb-8">
           <button
             onClick={() => setCurrentView('newContact')}
-            className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-blue-400 transition-all duration-300"
+            className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-sky-400 transition-all duration-300"
           >
-            <div className="w-9 h-9 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-9 h-9 bg-gradient-to-r from-sky-500 to-sky-600 rounded-lg flex items-center justify-center shadow-md">
               <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z" />
               </svg>
@@ -474,7 +474,7 @@ const InternaTransferWindow = ({ openWindow }) => {
 
           <button
             onClick={() => setCurrentView('sameAccounts')}
-            className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-blue-400 transition-all duration-300"
+            className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-sky-400 transition-all duration-300"
           >
             <div className="w-9 h-9 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg flex items-center justify-center shadow-md">
               <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
@@ -505,7 +505,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                   placeholder="Buscar contacto..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
                 />
               </div>
             </div>
@@ -516,7 +516,7 @@ const InternaTransferWindow = ({ openWindow }) => {
             {loading ? (
               // Estado de carga
               <div className="p-10 text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-600 mx-auto mb-4"></div>
                 <p className="text-gray-600 text-sm">Cargando beneficiarios...</p>
               </div>
             ) : error ? (
@@ -544,7 +544,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                     <div className="flex items-center space-x-4">
                       {/* Avatar */}
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-md flex-shrink-0 shadow-md ${isCoopLasNaves(contact)
-                          ? 'bg-gradient-to-r from-blue-500 to-indigo-600'
+                          ? 'bg-gradient-to-r from-sky-500 to-sky-600'
                           : 'bg-gradient-to-r from-gray-600 to-gray-700'
                         }`}>
                         {contact.avatar}
@@ -553,7 +553,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                       {/* Información del contacto */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-gray-800 truncate group-hover:text-blue-600 transition-colors">
+                          <p className="text-sm font-semibold text-gray-800 truncate group-hover:text-sky-600 transition-colors">
                             {contact.name}
                           </p>
                           <span className="text-xs text-gray-500 ml-4 flex-shrink-0 font-mono">
@@ -571,7 +571,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                       <div className="flex items-center space-x-2 flex-shrink-0">
                         <button
                           onClick={(e) => { e.stopPropagation(); handleTransferToContact(contact); }}
-                          className="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+                          className="px-3 py-1.5 bg-sky-600 text-white text-xs font-medium rounded-md hover:bg-sky-700 transition-colors shadow-sm"
                           title="Transferir"
                         >
                           Transferir
@@ -601,7 +601,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                                   onClick={() => handleEditContact(contact)}
                                   className="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-100 flex items-center space-x-3"
                                 >
-                                  <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                                  <svg className="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                                   <span>Editar</span>
                                 </button>
                                 <button
@@ -670,7 +670,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                         key={`page-${page}`}
                         onClick={() => handlePageChange(page)}
                         className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${page === currentPage
-                            ? 'bg-blue-600 text-white font-semibold'
+                            ? 'bg-sky-600 text-white font-semibold'
                             : 'border border-gray-300 text-gray-600 hover:bg-gray-100'
                           }`}
                       >

@@ -137,7 +137,7 @@ const NewContactQuestions = ({ beneficiaryData, onSecurityValidated, onBack, onC
           {/* Loading State */}
           <div className="text-center py-12">
             <div className="inline-flex items-center space-x-3">
-              <svg className="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-8 w-8 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
@@ -174,23 +174,23 @@ const NewContactQuestions = ({ beneficiaryData, onSecurityValidated, onBack, onC
 
         {/* Resumen del beneficiario */}
         {beneficiaryData && (
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
-            <h3 className="text-lg font-semibold text-blue-800 mb-4">Datos del beneficiario a registrar:</h3>
+          <div className="bg-sky-50 border border-sky-200 rounded-2xl p-6 mb-8">
+            <h3 className="text-lg font-semibold text-sky-800 mb-4">Datos del beneficiario a registrar:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-blue-600 font-medium">Nombre:</span>
+                <span className="text-sky-600 font-medium">Nombre:</span>
                 <p className="text-gray-800">{beneficiaryData.beneficiaryName}</p>
               </div>
               <div>
-                <span className="text-blue-600 font-medium">Identificación:</span>
+                <span className="text-sky-600 font-medium">Identificación:</span>
                 <p className="text-gray-800">{beneficiaryData.identificationNumber}</p>
               </div>
               <div>
-                <span className="text-blue-600 font-medium">Banco:</span>
+                <span className="text-sky-600 font-medium">Banco:</span>
                 <p className="text-gray-800">{beneficiaryData.bankName}</p>
               </div>
               <div>
-                <span className="text-blue-600 font-medium">Cuenta:</span>
+                <span className="text-sky-600 font-medium">Cuenta:</span>
                 <p className="text-gray-800">{beneficiaryData.accountTypeName} - {beneficiaryData.accountNumber}</p>
               </div>
             </div>
@@ -202,7 +202,7 @@ const NewContactQuestions = ({ beneficiaryData, onSecurityValidated, onBack, onC
           <div className="p-6 space-y-6">
             {/* Icono de seguridad */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
                 </svg>
@@ -258,7 +258,7 @@ const NewContactQuestions = ({ beneficiaryData, onSecurityValidated, onBack, onC
                     onKeyPress={handleKeyPress}
                     placeholder="Ingresa tu respuesta"
                     disabled={isValidating}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300 disabled:opacity-50"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-transparent transition-all duration-300 disabled:opacity-50"
                     autoFocus
                   />
                   {validationAttempts > 0 && (
@@ -286,7 +286,7 @@ const NewContactQuestions = ({ beneficiaryData, onSecurityValidated, onBack, onC
                   type="button"
                   onClick={handleValidateAnswer}
                   disabled={isValidating || !userAnswer.trim()}
-                  className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center"
+                  className="flex-1 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center"
                 >
                   {isValidating ? (
                     <>

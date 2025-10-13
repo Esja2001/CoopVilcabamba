@@ -143,7 +143,7 @@ const FormPlaceholder = ({ title }) => (
   <div className="p-8 h-full bg-gradient-to-br from-gray-50 to-white">
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-8">
-        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
             className="w-8 h-8 text-white"
             viewBox="0 0 24 24"
@@ -193,7 +193,7 @@ const FormPlaceholder = ({ title }) => (
           <button className="px-6 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
             Cancelar
           </button>
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="px-6 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors">
             Guardar
           </button>
         </div>
@@ -208,30 +208,30 @@ const PRODUCT_DEFINITIONS = {
     id: 'savings',
     name: 'Ahorros',
     icon: '$',
-    color: 'emerald',
-    bgColor: 'bg-emerald-50',
-    hoverColor: 'hover:bg-emerald-100',
-    iconBg: 'bg-emerald-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Gestiona tus cuentas de ahorro'
   },
   'CreditProductForm': {
     id: 'credits',
     name: 'Créditos',
     icon: '📋',
-    color: 'blue',
-    bgColor: 'bg-blue-50',
-    hoverColor: 'hover:bg-blue-100',
-    iconBg: 'bg-blue-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Administra tus líneas de crédito'
   },
   'InvestmentProductForm': {
     id: 'investments',
     name: 'Inversiones',
     icon: '📈',
-    color: 'purple',
-    bgColor: 'bg-purple-50',
-    hoverColor: 'hover:bg-purple-100',
-    iconBg: 'bg-purple-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Controla tu portafolio de inversión'
   },
   'InsuranceProductForm': {
@@ -258,30 +258,30 @@ const PRODUCT_DEFINITIONS = {
     id: 'internal-transfer',
     name: 'Transferencia Interna',
     icon: '🏦',
-    color: 'green',
-    bgColor: 'bg-green-50',
-    hoverColor: 'hover:bg-green-100',
-    iconBg: 'bg-green-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Transferencias entre cuentas propias'
   },
   'ExternalTransferForm': {
     id: 'external-transfer',
     name: 'Transferencia Externa',
     icon: '🏛️',
-    color: 'blue',
-    bgColor: 'bg-blue-50',
-    hoverColor: 'hover:bg-blue-100',
-    iconBg: 'bg-blue-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Transferencias a otros bancos'
   },
   'InternationalTransferForm': {
     id: 'international-transfer',
     name: 'Transferencia Internacional',
     icon: '🌍',
-    color: 'purple',
-    bgColor: 'bg-purple-50',
-    hoverColor: 'hover:bg-purple-100',
-    iconBg: 'bg-purple-600',
+    color: 'sky',
+    bgColor: 'bg-sky-50',
+    hoverColor: 'hover:bg-sky-100',
+    iconBg: 'bg-sky-600',
     description: 'Transferencias internacionales'
   }
 };
@@ -332,7 +332,7 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
   };
 
   return (
-    <div className="p-6 h-full overflow-auto bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="p-6 h-full overflow-auto bg-gradient-to-br from-sky-50 to-sky-100">
       <div className="max-w-7xl mx-auto">
 
         
@@ -359,14 +359,14 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                     <p className="text-2xl font-bold text-gray-800">
                       {financialData?.formatted?.balanceTotal || '$0.00'}
                     </p>
-                    <p className="text-sm text-green-600 mt-1">
+                    <p className="text-sm text-sky-600 mt-1">
                       Disponible: {financialData?.formatted?.balanceDisponible || '$0.00'}
                     </p>
                   </div>
                 )}
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="currentColor">
+              <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
                 </svg>
               </div>
@@ -393,14 +393,14 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                     <p className="text-2xl font-bold text-gray-800">
                       {financialData?.formatted?.ahorrosTotal || '$0.00'}
                     </p>
-                    <p className="text-sm text-blue-600 mt-1">
+                    <p className="text-sm text-sky-600 mt-1">
                       Disponible: {financialData?.formatted?.ahorrosDisponible || '$0.00'}
                     </p>
                   </div>
                 )}
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M21,18V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V6H12C10.89,6 10,6.9 10,8V16A2,2 0 0,0 12,18" />
                 </svg>
               </div>
@@ -427,14 +427,14 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                     <p className="text-2xl font-bold text-gray-800">
                       {financialData?.formatted?.inversionesTotal || '$0.00'}
                     </p>
-                    <p className="text-sm text-purple-600 mt-1">
+                    <p className="text-sm text-sky-600 mt-1">
                       Disponible: {financialData?.formatted?.inversionesDisponible || '$0.00'}
                     </p>
                   </div>
                 )}
               </div>
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+              <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6" />
                 </svg>
               </div>
@@ -513,7 +513,7 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
             </div>
             {recentProducts.length > 0 && (
               <button
-                className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                className="text-sm text-sky-600 hover:text-sky-800 font-medium"
                 onClick={() => {
                   console.log('Limpiar productos recientes');
                 }}
@@ -536,7 +536,7 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                     className={`relative p-4 ${productData.bgColor} ${productData.hoverColor} rounded-xl transition-all duration-200 text-center group hover:shadow-md hover:scale-105`}
                   >
                     {index === 0 && (
-                      <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                      <div className="absolute -top-2 -right-2 w-4 h-4 bg-sky-500 rounded-full flex items-center justify-center">
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       </div>
                     )}
@@ -583,9 +583,9 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                 title: 'Transferencia Interna',
                 label: 'Transferencia Interna'
               })}
-              className="p-4 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors text-center"
+              className="p-4 bg-sky-50 hover:bg-sky-100 rounded-xl transition-colors text-center"
             >
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
+              <div className="w-8 h-8 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-2">
                 <span className="text-white text-lg">🏦</span>
               </div>
               <span className="text-sm font-medium">Internas</span>
@@ -597,9 +597,9 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                 title: 'Transferencia Externa',
                 label: 'Transferencia Externa'
               })}
-              className="p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors text-center"
+              className="p-4 bg-sky-50 hover:bg-sky-100 rounded-xl transition-colors text-center"
             >
-              <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+              <div className="w-8 h-8 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-2">
                 <span className="text-white text-lg">🏛️</span>
               </div>
               <span className="text-sm font-medium">Externas</span>
@@ -611,9 +611,9 @@ const DashboardHomeContent = ({ recentProducts, onProductClick }) => {
                 title: 'Transferencia Internacional',
                 label: 'Transferencia Internacional'
               })}
-              className="p-4 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors text-center"
+              className="p-4 bg-sky-50 hover:bg-sky-100 rounded-xl transition-colors text-center"
             >
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+              <div className="w-8 h-8 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-2">
                 <span className="text-white text-lg">🌍</span>
               </div>
               <span className="text-sm font-medium">Internacional</span>
@@ -878,7 +878,7 @@ const Dashboard = ({ userSession, onLogout }) => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => arrangeWindows("auto")}
-                      className="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1"
+                      className="px-3 py-1 bg-sky-100 hover:bg-sky-200 text-sky-700 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1"
                       title="Auto-organizar"
                     >
                       <svg
@@ -892,7 +892,7 @@ const Dashboard = ({ userSession, onLogout }) => {
                     </button>
                     <button
                       onClick={() => arrangeWindows("cascade")}
-                      className="px-3 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1"
+                      className="px-3 py-1 bg-sky-100 hover:bg-sky-200 text-sky-700 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1"
                       title="Organizar en cascada"
                     >
                       <svg
@@ -996,10 +996,10 @@ const Dashboard = ({ userSession, onLogout }) => {
                     <button
                       key={window.id}
                       onClick={() => restoreAndMaximizeWindow(window.id)}
-                      className="flex items-center space-x-2 px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors text-sm"
+                      className="flex items-center space-x-2 px-3 py-2 bg-sky-100 hover:bg-sky-200 rounded-lg transition-colors text-sm"
                       title={`Maximizar ${getShortTitle(window)}`}
                     >
-                      <div className="w-4 h-4 bg-blue-500 rounded-sm flex items-center justify-center">
+                      <div className="w-4 h-4 bg-sky-500 rounded-sm flex items-center justify-center">
                         <svg
                           className="w-2 h-2 text-white"
                           viewBox="0 0 24 24"

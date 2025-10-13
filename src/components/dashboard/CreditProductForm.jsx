@@ -245,12 +245,12 @@ const CreditProductForm = () => {
 
   const getCreditStatusDisplay = (status) => {
     const statusMap = {
-      'ACTIVO': { text: 'ACTIVO', color: 'bg-green-100 text-green-800 border-green-200' },
+      'ACTIVO': { text: 'ACTIVO', color: 'bg-sky-100 text-sky-800 border-sky-200' },
       'VENCIDO': { text: 'VENCIDO', color: 'bg-red-100 text-red-800 border-red-200' },
       'RECLASIFICADO': { text: 'RECLASIFICADO', color: 'bg-orange-100 text-orange-800 border-orange-200' },
       'CANCELADO': { text: 'CANCELADO', color: 'bg-gray-100 text-gray-800 border-gray-200' }
     };
-    return statusMap[status] || { text: status, color: 'bg-blue-100 text-blue-800 border-blue-200' };
+    return statusMap[status] || { text: status, color: 'bg-sky-100 text-sky-800 border-sky-200' };
   };
 
   const calculateAveragePayment = (amortizationData) => {
@@ -554,10 +554,10 @@ const CreditProductForm = () => {
   // Renderizar estado de carga inicial
   if (loading) {
     return (
-      <div className="min-h-full bg-blue-50">
+      <div className="min-h-full bg-sky-50">
         <div className="max-w-7xl mx-auto p-6">
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-600 mx-auto mb-4"></div>
             <p className="text-gray-600">Cargando créditos...</p>
           </div>
         </div>
@@ -568,7 +568,7 @@ const CreditProductForm = () => {
   // Renderizar error inicial
   if (error) {
     return (
-      <div className="min-h-full bg-blue-50">
+      <div className="min-h-full bg-sky-50">
         <div className="max-w-7xl mx-auto p-6">
           <div className="text-center py-12">
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
@@ -603,7 +603,7 @@ const CreditProductForm = () => {
     const statusDisplay = getCreditStatusDisplay(selectedCredit.status);
     
     return (
-      <div className="min-h-full bg-blue-50">
+      <div className="min-h-full bg-sky-50">
         <div className="max-w-7xl mx-auto p-6">
           {/* Header Navigation */}
           <div className="flex items-center justify-between mb-8">
@@ -627,7 +627,7 @@ const CreditProductForm = () => {
             <div className="flex items-center space-x-3">
               <button 
                 onClick={downloadAmortizationPDF}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
@@ -639,14 +639,14 @@ const CreditProductForm = () => {
 
           {/* Credit Summary Card */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-200 mb-8 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-6">
+            <div className="bg-gradient-to-r from-sky-500 to-sky-600 px-8 py-6">
               <div className="flex items-center justify-between text-white">
                 <div>
                   <h1 className="text-2xl font-bold mb-1">{selectedCredit.type}</h1>
-                  <p className="text-blue-100 font-mono text-lg">{selectedCredit.creditNumber}</p>
+                  <p className="text-sky-100 font-mono text-lg">{selectedCredit.creditNumber}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-blue-100 text-sm font-medium mb-1">Saldo Pendiente</p>
+                  <p className="text-sky-100 text-sm font-medium mb-1">Saldo Pendiente</p>
                   <p className="text-4xl font-bold">
                     ${selectedCredit.currentBalance.toLocaleString("es-EC", { minimumFractionDigits: 2 })}
                   </p>
@@ -758,7 +758,7 @@ const CreditProductForm = () => {
             {/* Loading State */}
             {loadingAmortization && (
               <div className="p-8 text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-600 mx-auto mb-4"></div>
                 <p className="text-gray-600">Cargando tabla de amortización...</p>
               </div>
             )}
@@ -806,7 +806,7 @@ const CreditProductForm = () => {
                         amortizationTable.map((cuota) => (
                           <tr key={cuota.id} className="hover:bg-gray-50 transition-colors">
                             <td className="px-6 py-4 whitespace-nowrap text-center">
-                              <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-800 rounded-full text-sm font-bold">
+                              <span className="inline-flex items-center justify-center w-8 h-8 bg-sky-100 text-sky-800 rounded-full text-sm font-bold">
                                 {cuota.paymentNumber}
                               </span>
                             </td>
@@ -814,7 +814,7 @@ const CreditProductForm = () => {
                               <div className="text-sm font-medium text-gray-800">{cuota.date}</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right">
-                              <span className="text-sm font-semibold text-blue-600">
+                              <span className="text-sm font-semibold text-sky-600">
                                 {cuota.capital.toFixed(2)}
                               </span>
                             </td>
@@ -840,7 +840,7 @@ const CreditProductForm = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-center">
                               <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                                cuota.originalStatus === 'Pg.T.A' ? 'bg-green-100 text-green-800 border border-green-200' :
+                                cuota.originalStatus === 'Pg.T.A' ? 'bg-sky-100 text-sky-800 border border-sky-200' :
                                 cuota.originalStatus === 'Pg.T.V' ? 'bg-yellow-100 text-yellow-800 border border-yellow-200' :
                                 cuota.originalStatus === 'Pendiente' ? 'bg-orange-100 text-orange-800 border border-orange-200' :
                                 cuota.originalStatus === 'Vencido' ? 'bg-red-100 text-red-800 border border-red-200' :
@@ -873,11 +873,11 @@ const CreditProductForm = () => {
 
   // Renderizar listado principal de créditos
   return (
-    <div className="min-h-full bg-blue-50">
+    <div className="min-h-full bg-sky-50">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
             <MdAccountBalance className="text-white text-3xl" />
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-3">Mis Créditos</h1>
@@ -893,8 +893,8 @@ const CreditProductForm = () => {
                   <p className="text-sm font-medium text-gray-600">Total de Créditos</p>
                   <p className="text-3xl font-bold text-gray-800">{credits.length}</p>
                 </div>
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <MdAccountBalance className="text-blue-600 text-2xl" />
+                <div className="p-3 bg-sky-100 rounded-full">
+                  <MdAccountBalance className="text-sky-600 text-2xl" />
                 </div>
               </div>
             </div>
@@ -903,12 +903,12 @@ const CreditProductForm = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Saldo Total</p>
-                  <p className="text-3xl font-bold text-blue-600">
+                  <p className="text-3xl font-bold text-sky-600">
                     ${credits.reduce((sum, credit) => sum + credit.currentBalance, 0).toLocaleString("es-EC", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <span className="text-blue-600 text-2xl font-bold">$</span>
+                <div className="p-3 bg-sky-100 rounded-full">
+                  <span className="text-sky-600 text-2xl font-bold">$</span>
                 </div>
               </div>
             </div>
@@ -917,12 +917,12 @@ const CreditProductForm = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Créditos Activos</p>
-                  <p className="text-3xl font-bold text-green-600">
+                  <p className="text-3xl font-bold text-sky-600">
                     {credits.filter(credit => credit.status === 'ACTIVO').length}
                   </p>
                 </div>
-                <div className="p-3 bg-green-100 rounded-full">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <div className="p-3 bg-sky-100 rounded-full">
+                  <svg className="w-6 h-6 text-sky-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 1.414z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -944,13 +944,13 @@ const CreditProductForm = () => {
               >
                 {/* Credit Icon */}
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center shadow-lg">
                     <MdAccountBalance className="text-white text-3xl" />
                   </div>
                 </div>
 
                 {/* Credit Type */}
-                <h3 className="text-lg font-bold text-gray-800 text-center mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold text-gray-800 text-center mb-2 group-hover:text-sky-600 transition-colors">
                   {credit.type}
                 </h3>
 
@@ -961,7 +961,7 @@ const CreditProductForm = () => {
 
                 {/* Balance */}
                 <div className="text-center mb-4">
-                  <p className="text-2xl font-bold text-blue-600">
+                  <p className="text-2xl font-bold text-sky-600">
                     ${credit.currentBalance.toLocaleString("es-EC", { minimumFractionDigits: 2 })}
                   </p>
                   <p className="text-xs text-gray-500">{credit.currency}</p>
@@ -1003,7 +1003,7 @@ const CreditProductForm = () => {
             <p className="text-gray-500 mb-4">No tienes créditos registrados en este momento.</p>
             <button
               onClick={refreshData}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Actualizar
             </button>
@@ -1027,7 +1027,7 @@ const CreditProductForm = () => {
                 onClick={() => handlePageChange(page)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
                   currentPage === page
-                    ? "bg-blue-600 text-white"
+                    ? "bg-sky-600 text-white"
                     : "border border-gray-300 text-gray-500 hover:bg-gray-50"
                 }`}
               >
@@ -1059,7 +1059,7 @@ const CreditProductForm = () => {
           <button
             onClick={refreshData}
             disabled={loading}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+            className="bg-sky-600 hover:bg-sky-700 disabled:bg-sky-400 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
             title="Actualizar créditos"
           >
             <svg

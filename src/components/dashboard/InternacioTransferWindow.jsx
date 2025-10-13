@@ -402,7 +402,7 @@ const InternacioTransferWindow = () => {
                   {exchangeRate && (
                     <div className="flex justify-between">
                       <span className="text-gray-600">Beneficiario recibe:</span>
-                      <span className="font-bold text-green-600">{(parseFloat(formData.amount || 0) / exchangeRate).toFixed(2)} {formData.currency}</span>
+                      <span className="font-bold text-sky-600">{(parseFloat(formData.amount || 0) / exchangeRate).toFixed(2)} {formData.currency}</span>
                     </div>
                   )}
                 </div>
