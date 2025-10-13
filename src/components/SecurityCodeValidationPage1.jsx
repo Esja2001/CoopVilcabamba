@@ -242,6 +242,44 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
               </button>
             </div>
           )}
+          
+          {/* Progress indicator - Migajas de pan */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-2">
+              {['Identidad', 'Credenciales', 'Preguntas', 'Código'].map((step, index) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                    index < 3
+                      ? 'bg-green-500 text-white'
+                      : index === 3
+                        ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
+                        : 'bg-white/20 text-white/60'
+                  }`}>
+                    {index < 3 ? (
+                      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      </svg>
+                    ) : (
+                      index + 1
+                    )}
+                  </div>
+                  {index < 3 && (
+                    <div className={`w-8 h-0.5 mx-1 transition-all duration-300 ${
+                      index < 2
+                        ? 'bg-green-500'
+                        : 'bg-green-500'
+                    }`}></div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-3">
+              <p className="text-white/90 text-sm font-medium">
+                Paso 4 de 4: Código de Seguridad
+              </p>
+            </div>
+          </div>
+
           {content}
         </div>
       </div>

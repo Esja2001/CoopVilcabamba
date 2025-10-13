@@ -273,6 +273,43 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               </button>
             </div>
 
+            {/* Progress indicator - Migajas de pan */}
+            <div className="mb-8">
+              <div className="flex items-center justify-center space-x-2">
+                {['Identidad', 'Credenciales', 'Preguntas', 'Código'].map((step, index) => (
+                  <div key={step} className="flex items-center">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                      index === 0
+                        ? 'bg-green-500 text-white'
+                        : index === 1
+                          ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
+                          : 'bg-white/20 text-white/60'
+                    }`}>
+                      {index === 0 ? (
+                        <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                      ) : (
+                        index + 1
+                      )}
+                    </div>
+                    {index < 3 && (
+                      <div className={`w-8 h-0.5 mx-1 transition-all duration-300 ${
+                        index < 1
+                          ? 'bg-green-500'
+                          : 'bg-white/20'
+                      }`}></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-3">
+                <p className="text-white/90 text-sm font-medium">
+                  Paso 2 de 4: Términos y Credenciales
+                </p>
+              </div>
+            </div>
+
             <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600"></div>
               
@@ -431,6 +468,43 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
               <span>Regresar a términos</span>
             </button>
+          </div>
+
+          {/* Progress indicator - Migajas de pan */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-2">
+              {['Identidad', 'Credenciales', 'Preguntas', 'Código'].map((step, index) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                    index === 0
+                      ? 'bg-green-500 text-white'
+                      : index === 1
+                        ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
+                        : 'bg-white/20 text-white/60'
+                  }`}>
+                    {index === 0 ? (
+                      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      </svg>
+                    ) : (
+                      index + 1
+                    )}
+                  </div>
+                  {index < 3 && (
+                    <div className={`w-8 h-0.5 mx-1 transition-all duration-300 ${
+                      index < 1
+                        ? 'bg-green-500'
+                        : 'bg-white/20'
+                    }`}></div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-3">
+              <p className="text-white/90 text-sm font-medium">
+                Paso 2 de 4: Términos y Credenciales
+              </p>
+            </div>
           </div>
 
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">

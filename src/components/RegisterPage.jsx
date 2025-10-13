@@ -199,6 +199,31 @@ const RegisterPage = ({ onNext, onBack }) => {
             </button>
           </div>
 
+          {/* Progress indicator - Migajas de pan */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-2">
+              {['Identidad', 'Credenciales', 'Preguntas', 'Código'].map((step, index) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                    index === 0
+                      ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
+                      : 'bg-white/20 text-white/60'
+                  }`}>
+                    {index + 1}
+                  </div>
+                  {index < 3 && (
+                    <div className={`w-8 h-0.5 mx-1 transition-all duration-300 bg-white/20`}></div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-3">
+              <p className="text-white/90 text-sm font-medium">
+                Paso 1 de 4: Validar Identidad
+              </p>
+            </div>
+          </div>
+
           {/* Main card - ESTILO ACTUALIZADO COMO LOGINPAGE */}
           <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-6 shadow-2xl border border-white/50 relative overflow-hidden">
             
