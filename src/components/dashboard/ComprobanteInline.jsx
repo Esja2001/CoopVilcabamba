@@ -37,8 +37,8 @@ const ComprobanteInline = ({ transferData, onClose, onNewTransfer }) => {
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="currentColor">
+              <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
                 </svg>
               </div>
@@ -51,7 +51,7 @@ const ComprobanteInline = ({ transferData, onClose, onNewTransfer }) => {
             <div className="flex space-x-3">
               <button
                 onClick={onNewTransfer}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-2"
+                className="bg-sky-600 hover:bg-sky-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-2"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
@@ -94,7 +94,7 @@ const ComprobanteInline = ({ transferData, onClose, onNewTransfer }) => {
             {/* Detalles de transacción */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                <svg className="w-5 h-5 text-blue-600 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-sky-600 mr-2" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                 </svg>
                 Detalles de la Transacción
@@ -117,8 +117,8 @@ const ComprobanteInline = ({ transferData, onClose, onNewTransfer }) => {
               <div className="bg-gray-50 rounded-lg p-4">
                 <label className="text-sm font-medium text-gray-600 block mb-1">Estado</label>
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-green-700">Completada</span>
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                  <span className="text-sm font-medium text-sky-700">Completada</span>
                 </div>
               </div>
             </div>
@@ -126,30 +126,30 @@ const ComprobanteInline = ({ transferData, onClose, onNewTransfer }) => {
             {/* Detalles de cuentas */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                <svg className="w-5 h-5 text-blue-600 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-sky-600 mr-2" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
                 </svg>
                 Información de Cuentas
               </h3>
               
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <label className="text-sm font-medium text-blue-800 block mb-2">Cuenta Origen</label>
-                <p className="text-sm font-mono text-blue-900 bg-white p-2 rounded border">
+              <div className="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                <label className="text-sm font-medium text-sky-800 block mb-2">Cuenta Origen</label>
+                <p className="text-sm font-mono text-sky-900 bg-white p-2 rounded border">
                   {formatAccountNumber(transferData?.cuentaOrigen)}
                 </p>
               </div>
               
               <div className="flex justify-center">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M4,15V9H12L7.5,4.5L9,3L16,10L9,17L7.5,15.5L12,11H4Z"/>
                   </svg>
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                <label className="text-sm font-medium text-green-800 block mb-2">Cuenta Destino</label>
-                <p className="text-sm font-mono text-green-900 bg-white p-2 rounded border">
+              <div className="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                <label className="text-sm font-medium text-sky-800 block mb-2">Cuenta Destino</label>
+                <p className="text-sm font-mono text-sky-900 bg-white p-2 rounded border">
                   {formatAccountNumber(transferData?.cuentaDestino)}
                 </p>
               </div>

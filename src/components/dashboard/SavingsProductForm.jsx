@@ -835,7 +835,7 @@ const SavingsProductForm = () => {
           <button
             onClick={applyDateFilters}
             disabled={loadingStatement}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="bg-sky-600 hover:bg-sky-700 disabled:bg-sky-400 text-white px-4 py-2 rounded-lg font-medium transition-colors"
           >
             {loadingStatement ? "Cargando..." : "Aplicar"}
           </button>
@@ -856,8 +856,8 @@ const SavingsProductForm = () => {
       
       {/* Mostrar período actual en formato YYYY/MM/DD */}
       {dateFilters.fechaDesde && dateFilters.fechaHasta && (
-        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-          <p className="text-sm text-blue-700">
+        <div className="mt-4 p-3 bg-sky-50 rounded-lg">
+          <p className="text-sm text-sky-700">
             <strong>Período consultado:</strong> {dateFilters.fechaDesde} al {dateFilters.fechaHasta}
           </p>
         </div>
@@ -868,7 +868,7 @@ const SavingsProductForm = () => {
   // Renderizar estado de carga inicial
   if (loading) {
     return (
-      <div className="min-h-full bg-blue-50">
+      <div className="min-h-full bg-sky-50">
         <div className="max-w-7xl mx-auto p-6">
           <div className="text-center py-12">
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
@@ -901,7 +901,7 @@ const SavingsProductForm = () => {
   // Renderizar estado de cuenta
   if (showStatement && selectedAccount) {
     return (
-      <div className="min-h-full bg-blue-50">
+      <div className="min-h-full bg-sky-50">
         <div className="max-w-7xl mx-auto p-6">
           {/* Header Navigation */}
           <div className="flex items-center justify-between mb-8">
@@ -931,7 +931,7 @@ const SavingsProductForm = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={downloadStatementPDF}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
               >
                 <svg
                   className="w-5 h-5"
@@ -947,7 +947,7 @@ const SavingsProductForm = () => {
 
           {/* Account Summary Card */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-200 mb-8 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-6">
+            <div className="bg-gradient-to-r from-sky-500 to-sky-600 px-8 py-6">
               <div className="flex items-center justify-between text-white">
                 <div>
                   <h1 className="text-2xl font-bold mb-1">
@@ -958,7 +958,7 @@ const SavingsProductForm = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-blue-100 text-sm font-medium mb-1">
+                  <p className="text-sky-100 text-sm font-medium mb-1">
                     Saldo Disponible
                   </p>
                   <p className="text-4xl font-bold">
@@ -1004,7 +1004,7 @@ const SavingsProductForm = () => {
                   <p className="text-sm text-gray-500 font-medium mb-1">
                     Estado
                   </p>
-                  <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+                  <span className="inline-flex px-3 py-1 bg-sky-100 text-sky-800 rounded-full text-sm font-semibold">
                     {selectedAccount.status}
                   </span>
                 </div>
@@ -1033,7 +1033,7 @@ const SavingsProductForm = () => {
             {/* Loading State */}
             {loadingStatement && (
               <div className="p-8 text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-600 mx-auto mb-4"></div>
                 <p className="text-gray-600">Cargando movimientos...</p>
               </div>
             )}
@@ -1111,7 +1111,7 @@ const SavingsProductForm = () => {
                             <td className="px-6 py-4">
                               <div className="flex items-center space-x-3">
                                 <div
-                                  className={`w-2 h-2 rounded-full ${movement.type === "credit" ? "bg-blue-400" : "bg-red-400"}`}
+                                  className={`w-2 h-2 rounded-full ${movement.type === "credit" ? "bg-sky-400" : "bg-red-400"}`}
                                 ></div>
                                 <div className="text-sm font-medium text-gray-800">
                                   {movement.description}
@@ -1135,7 +1135,7 @@ const SavingsProductForm = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right">
                               {movement.credit > 0 ? (
-                                <span className="text-sm font-semibold text-blue-600">
+                                <span className="text-sm font-semibold text-sky-600">
                                   +${movement.credit.toFixed(2)}
                                 </span>
                               ) : (
@@ -1162,7 +1162,7 @@ const SavingsProductForm = () => {
                     <p className="text-gray-600">
                       Mostrando {accountStatement.length} movimientos
                       {dateFilters.fechaDesde && dateFilters.fechaHasta && (
-                        <span className="ml-2 text-blue-600">
+                        <span className="ml-2 text-sky-600">
                           ({dateFilters.fechaDesde} - {dateFilters.fechaHasta})
                         </span>
                       )}
@@ -1179,11 +1179,11 @@ const SavingsProductForm = () => {
 
   // Renderizar listado principal de cuentas
   return (
-    <div className="min-h-full bg-blue-50">
+    <div className="min-h-full bg-sky-50">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
             <span className="text-white text-3xl font-bold">$</span>
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-3">Mis Ahorros</h1>
@@ -1202,13 +1202,13 @@ const SavingsProductForm = () => {
             >
               {/* Account Icon */}
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center shadow-lg">
                   <MdSavings className="text-white text-3xl" />
                 </div>
               </div>
 
               {/* Account Type */}
-              <h3 className="text-lg font-bold text-gray-800 text-center mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-bold text-gray-800 text-center mb-2 group-hover:text-sky-600 transition-colors">
                 {account.type}
               </h3>
 
@@ -1219,7 +1219,7 @@ const SavingsProductForm = () => {
 
               {/* Balance */}
               <div className="text-center mb-4">
-                <p className="text-2xl font-bold text-blue-600">
+                <p className="text-2xl font-bold text-sky-600">
                   $
                   {account.balance.toLocaleString("es-EC", {
                     minimumFractionDigits: 2,
@@ -1232,7 +1232,7 @@ const SavingsProductForm = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Tasa:</span>
-                  <span className="text-xs font-semibold text-blue-600">
+                  <span className="text-xs font-semibold text-sky-600">
                     {account.interestRate}% anual
                   </span>
                 </div>
@@ -1241,7 +1241,7 @@ const SavingsProductForm = () => {
                   <span
                     className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                       account.status === "ACTIVA"
-                        ? "bg-blue-100 text-blue-800 border border-blue-200"
+                        ? "bg-sky-100 text-sky-800 border border-sky-200"
                         : "bg-red-100 text-red-800 border border-red-200"
                     }`}
                   >
@@ -1276,7 +1276,7 @@ const SavingsProductForm = () => {
             </p>
             <button
               onClick={refreshData}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Actualizar
             </button>
@@ -1300,7 +1300,7 @@ const SavingsProductForm = () => {
                 onClick={() => handlePageChange(page)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
                   currentPage === page
-                    ? "bg-blue-600 text-white"
+                    ? "bg-sky-600 text-white"
                     : "border border-gray-300 text-gray-500 hover:bg-gray-50"
                 }`}
               >
@@ -1334,7 +1334,7 @@ const SavingsProductForm = () => {
           <button
             onClick={refreshData}
             disabled={loading}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+            className="bg-sky-600 hover:bg-sky-700 disabled:bg-sky-400 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
             title="Actualizar cuentas"
           >
             <svg

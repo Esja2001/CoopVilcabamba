@@ -284,7 +284,7 @@ const CodeSecurityInternalTransfer = ({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-sky-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50 to-sky-100 flex flex-col">
       {/* Header */}
 <div className="bg-white shadow-sm border-b border-gray-200 flex-shrink-0">
   <div className="max-w-4xl mx-auto px-6 py-4">
@@ -328,9 +328,9 @@ const CodeSecurityInternalTransfer = ({
       <div className="flex-1 h-px bg-emerald-300 mx-4"></div>
       
       {/* Paso 2 - ACTIVO */}
-      <div className="flex items-center text-blue-600">
-        <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-blue-500/20">2</div>
-        <span className="ml-2 text-sm font-medium text-blue-600">Código Seguridad</span>
+      <div className="flex items-center text-sky-600">
+        <div className="w-8 h-8 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-sky-500/20">2</div>
+        <span className="ml-2 text-sm font-medium text-sky-600">Código Seguridad</span>
       </div>
       
       {/* Línea conectora 2-3 */}
@@ -352,8 +352,8 @@ const CodeSecurityInternalTransfer = ({
         <div className="lg:w-1/2">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 h-fit">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                <svg className="w-5 h-5 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9Z"/>
                 </svg>
               </div>
@@ -371,8 +371,8 @@ const CodeSecurityInternalTransfer = ({
               </div>
               
                 <div className="flex justify-center">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M4,15V9H12L7.5,4.5L9,3L16,10L9,17L7.5,15.5L12,11H4Z"/>
                   </svg>
                 </div>
@@ -390,15 +390,15 @@ const CodeSecurityInternalTransfer = ({
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-base font-medium text-gray-800">Monto a transferir:</span>
-                  <span className="text-2xl font-bold text-blue-600">
+                  <span className="text-2xl font-bold text-sky-600">
                     {formatCurrency(transferData.monto)}
                   </span>
                 </div>
-                
+
                 {transferData.descripcion && (
-                  <div className="mt-3 p-3 bg-blue-50 rounded-lg">
-                    <span className="text-sm font-medium text-blue-800">Descripción:</span>
-                    <p className="text-sm text-blue-700 mt-1">{transferData.descripcion}</p>
+                  <div className="mt-3 p-3 bg-sky-50 rounded-lg">
+                    <span className="text-sm font-medium text-sky-800">Descripción:</span>
+                    <p className="text-sm text-sky-700 mt-1">{transferData.descripcion}</p>
                   </div>
                 )}
               </div>
@@ -413,7 +413,7 @@ const CodeSecurityInternalTransfer = ({
             {/* ✅ ESTADO DE CARGA INICIAL */}
             {loading && !idemsg && (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse shadow-lg shadow-blue-500/20">
+                <div className="w-16 h-16 bg-gradient-to-r from-sky-600 to-sky-700 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse shadow-lg shadow-sky-500/20">
                   <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
                   </svg>
@@ -427,7 +427,7 @@ const CodeSecurityInternalTransfer = ({
             {!loading && idemsg && (
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/20">
+                  <div className="w-16 h-16 bg-gradient-to-r from-sky-600 to-sky-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-sky-500/20">
                     <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
                     </svg>
@@ -451,7 +451,7 @@ const CodeSecurityInternalTransfer = ({
                       onChange={e => handleInputChange(index, e.target.value)}
                       onKeyDown={e => handleKeyDown(index, e)}
                       onPaste={handlePaste}
-                      className="w-12 h-12 text-center text-xl font-bold bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300"
+                      className="w-12 h-12 text-center text-xl font-bold bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 hover:border-gray-300"
                       disabled={transferExecuting}
                     />
                   ))}
@@ -481,7 +481,7 @@ const CodeSecurityInternalTransfer = ({
                     <button
                       onClick={handleResendCode}
                       disabled={resendLoading || transferExecuting}
-                      className="text-sm text-blue-600 hover:text-blue-800 font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg"
+                      className="text-sm text-sky-600 hover:text-sky-800 font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-sky-50 hover:bg-sky-100 px-4 py-2 rounded-lg"
                     >
                       {resendLoading ? 'Enviando nuevo código...' : '📱 Reenviar código'}
                     </button>
@@ -492,7 +492,7 @@ const CodeSecurityInternalTransfer = ({
                 <button
                   onClick={executeTransfer}
                   disabled={transferExecuting || otpCode.join('').length !== 6 || !idemsg}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center justify-center space-x-2 text-lg shadow-lg shadow-blue-500/20"
+                  className="w-full bg-gradient-to-r from-sky-600 to-sky-700 text-white py-4 px-6 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:from-sky-700 hover:to-sky-800 transition-all duration-200 flex items-center justify-center space-x-2 text-lg shadow-lg shadow-sky-500/20"
                 >
                   {transferExecuting ? (
                     <>
@@ -535,7 +535,7 @@ const CodeSecurityInternalTransfer = ({
                     otpRequestedRef.current = false;
                     requestOTPCode();
                   }}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+                  className="bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 px-6 rounded-xl transition-colors"
                 >
                   Reintentar envío
                 </button>

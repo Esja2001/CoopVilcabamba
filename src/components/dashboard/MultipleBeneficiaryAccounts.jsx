@@ -58,7 +58,7 @@ const MultipleBeneficiaryAccounts = ({
           value={selectedAccount}
           onChange={handleAccountChange}
           disabled={disabled}
-          className="w-full px-4 py-2 bg-white border border-slate-300 rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-2 bg-white border border-slate-300 rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <option value="">Selecciona una cuenta</option>
           {accounts.map((account) => (
@@ -78,10 +78,10 @@ const MultipleBeneficiaryAccounts = ({
 
       {/* Información de la cuenta seleccionada */}
       {selectedAccount && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+        <div className="bg-sky-50 border border-sky-200 rounded-lg p-3">
           <div className="flex items-start space-x-3">
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+            <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z" />
               </svg>
             </div>
@@ -92,16 +92,16 @@ const MultipleBeneficiaryAccounts = ({
                 
                 return (
                   <div className="space-y-1">
-                    <p className="text-sm font-medium text-blue-800">
+                    <p className="text-sm font-medium text-sky-800">
                       Cuenta: {account.accountNumber}
                     </p>
                     {account.bank && (
-                      <p className="text-xs text-blue-600">
+                      <p className="text-xs text-sky-600">
                         Banco: {account.bank}
                       </p>
                     )}
                     {account.accountType && (
-                      <p className="text-xs text-blue-600">
+                      <p className="text-xs text-sky-600">
                         Tipo: {account.accountType}
                       </p>
                     )}

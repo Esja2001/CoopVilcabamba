@@ -647,7 +647,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
               </button>
               <button
                 onClick={handleNewTransfer}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-md shadow-blue-500/20"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-md shadow-sky-500/20"
               >
                 Nueva Transferencia
               </button>
@@ -688,9 +688,9 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
           {/* Stepper */}
           <div className="flex items-center">
             {/* Paso 1 - ACTIVO */}
-            <div className="flex items-center text-blue-600">
-              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">1</div>
-              <span className="ml-2 text-sm font-medium text-blue-600">Formulario</span>
+            <div className="flex items-center text-sky-600">
+              <div className="w-8 h-8 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-sm">1</div>
+              <span className="ml-2 text-sm font-medium text-sky-600">Formulario</span>
             </div>
 
             {/* Línea conectora 1-2 */}
@@ -729,7 +729,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
         {loading && (
           <div className="text-center py-12">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
-              <svg className="animate-spin h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
               </svg>
@@ -768,8 +768,8 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                     value={formData.beneficiary}
                     onChange={handleInputChange}
                     disabled={beneficiaries.length === 0 || Boolean(lockedBeneficiaryId)}
-                    className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.beneficiary ? 'border-red-500' : 'border-slate-300'
-                      } ${preselectedContact || lockedBeneficiaryId ? 'border-blue-400 bg-blue-50/20' : ''}`}
+                    className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.beneficiary ? 'border-red-500' : 'border-slate-300'
+                      } ${preselectedContact || lockedBeneficiaryId ? 'border-sky-400 bg-sky-50/20' : ''}`}
                   >
                     <option value="">
                       {beneficiaries.length === 0
@@ -799,7 +799,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                   <button
                     type="button"
                     onClick={handleAddAccount}
-                    className="flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                    className="flex items-center text-sky-600 hover:text-sky-700 text-sm font-medium transition-colors duration-200"
                   >
                     <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V9M19 9H14V4H5V21H19V9Z" />
@@ -832,7 +832,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                           onChange={handleInputChange}
                           placeholder="0.00"
                           disabled={!formData.beneficiary}
-                          className={`w-full pl-7 pr-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.amount ? 'border-red-500' : 'border-slate-300'}`}
+                          className={`w-full pl-7 pr-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${errors.amount ? 'border-red-500' : 'border-slate-300'}`}
                         />
                       </div>
                       {errors.amount && (
@@ -849,7 +849,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                         name="fromAccount"
                         value={formData.fromAccount}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 ${errors.fromAccount ? 'border-red-500' : 'border-slate-300'}`}
+                        className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 ${errors.fromAccount ? 'border-red-500' : 'border-slate-300'}`}
                       >
                         <option value="">Selecciona una opción</option>
                         {accounts.map((account) => (
@@ -876,7 +876,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                       onChange={handleInputChange}
                       placeholder="Transferencia Externa"
                       maxLength="40"
-                      className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 ${errors.description ? 'border-red-500' : 'border-slate-300'}`}
+                      className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 ${errors.description ? 'border-red-500' : 'border-slate-300'}`}
                     />
                     {errors.description && (
                       <p className="text-red-500 text-sm mt-1">{errors.description}</p>
@@ -897,7 +897,7 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
                       hasInsufficientFundsError() ||
                       beneficiaries.length === 0
                     }
-                    className="w-full md:w-auto flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
+                    className="w-full md:w-auto flex-1 bg-sky-600 hover:bg-sky-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
                   >
                     {validatingFunds ? (
                       <>

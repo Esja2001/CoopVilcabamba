@@ -149,14 +149,14 @@ const Sidebar = ({ userInfo, onMenuClick, onLogout }) => {
                 onClick={() => handleMenuClick(item)}
                 className={`w-full flex items-center justify-between p-2.5 rounded-lg text-left transition-all duration-200 group ${
                   activeSection === item.id
-                    ? 'bg-blue-50 text-blue-600 font-semibold'
-                    : 'text-gray-600 hover:bg-teal-50 hover:text-teal-700'
+                    ? 'bg-sky-50 text-sky-600 font-semibold'
+                    : 'text-gray-600 hover:bg-sky-50 hover:text-sky-700'
                 }`}
               >
                 <div className="flex items-center space-x-2.5">
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200 ${
                     activeSection === item.id 
-                      ? 'bg-blue-100 text-blue-600' 
+                      ? 'bg-sky-100 text-sky-600' 
                       : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200 group-hover:text-gray-700'
                   }`}>
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -198,27 +198,27 @@ const Sidebar = ({ userInfo, onMenuClick, onLogout }) => {
                           <button
                             key={subItem.id}
                             onClick={() => handleSubmenuClick(item, subItem)}
-                            className={`group bg-white hover:bg-teal-50 rounded-xl p-3 text-center transition-all duration-200 hover:scale-105 hover:shadow-md border border-gray-200/80 ${
-                              activeSection === subItem.id ? 'ring-2 ring-blue-500 shadow-md' : ''
+                            className={`group bg-white hover:bg-sky-50 rounded-xl p-3 text-center transition-all duration-200 hover:scale-105 hover:shadow-md border border-gray-200/80 ${
+                              activeSection === subItem.id ? 'ring-2 ring-sky-500 shadow-md' : ''
                             }`}
                             title={subItem.description}
                           >
                             <div className="flex flex-col items-center space-y-2">
                               {/* Icon */}
-                              <div className={`w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover:text-teal-600 group-hover:bg-teal-100 transition-all duration-200`}>
+                              <div className={`w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover:text-sky-600 group-hover:bg-sky-100 transition-all duration-200`}>
                                 <span className="font-bold text-lg">
                                   {subItem.customIcon}
                                 </span>
                               </div>
                               {/* Text */}
-                              <span className="text-xs font-medium text-gray-700 group-hover:text-teal-700 transition-colors">
+                              <span className="text-xs font-medium text-gray-700 group-hover:text-sky-700 transition-colors">
                                 {subItem.label}
                               </span>
                             </div>
                             
                             {/* Active indicator */}
                             {activeSection === subItem.id && (
-                              <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white"></div>
+                              <div className="absolute -top-1 -right-1 w-3 h-3 bg-sky-500 rounded-full border-2 border-white"></div>
                             )}
                           </button>
                         );
@@ -232,8 +232,8 @@ const Sidebar = ({ userInfo, onMenuClick, onLogout }) => {
                         onClick={() => handleSubmenuClick(item, subItem)}
                         className={`w-full flex items-center p-2 pl-3 rounded-md text-left transition-all duration-200 text-xs ${
                           activeSection === subItem.id
-                            ? 'bg-blue-50 text-blue-700 font-semibold'
-                            : 'text-gray-500 hover:text-teal-700 hover:bg-teal-50'
+                            ? 'bg-sky-50 text-sky-700 font-semibold'
+                            : 'text-gray-500 hover:text-sky-700 hover:bg-sky-50'
                         }`}
                       >
                         <div className="w-1.5 h-1.5 bg-current rounded-full mr-2 opacity-60"></div>

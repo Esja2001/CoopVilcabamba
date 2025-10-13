@@ -234,7 +234,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
         <div className="max-w-2xl mx-auto">
           <div className="text-center py-12">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
-              <svg className="animate-spin h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
               </svg>
@@ -273,7 +273,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
         {/* Información del beneficiario (precargada) */}
         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-6">
           <div className="flex items-center">
-            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-lg font-bold text-blue-600 mr-4">
+            <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-lg font-bold text-sky-600 mr-4">
               {beneficiary.avatar || beneficiary.name?.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -321,7 +321,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
                   onFocus={() => setShowInstitutionDropdown(true)}
                   placeholder="Buscar institución (ej: Las Naves, Pichincha)..."
                   disabled={institutions.length === 0}
-                  className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                  className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
                     errors.institutionCode ? 'border-red-500' : 'border-slate-300'
                   }`}
                 />
@@ -356,7 +356,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
                 {institutions.length === 0 && (
                   <div className="absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg p-4">
                     <div className="flex items-center justify-center space-x-2">
-                      <svg className="animate-spin h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 text-sky-600" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
                       </svg>
@@ -388,7 +388,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
                 value={formData.accountTypeCode}
                 onChange={handleInputChange}
                 disabled={accountTypes.length === 0}
-                className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
                   errors.accountTypeCode ? 'border-red-500' : 'border-slate-300'
                 }`}
               >
@@ -418,7 +418,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
                 onChange={handleInputChange}
                 placeholder="Ingresa el número de cuenta"
                 maxLength="20"
-                className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400/50 transition-all duration-300 ${
+                className={`w-full px-4 py-2 bg-white border rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-sky-400/50 transition-all duration-300 ${
                   errors.accountNumber ? 'border-red-500' : 'border-slate-300'
                 }`}
               />
@@ -435,7 +435,7 @@ const AddAccountToBeneficiary = ({ beneficiary, onBack, onSuccess, onTransferToA
               <button
                 type="submit"
                 disabled={saving || institutions.length === 0 || accountTypes.length === 0}
-                className="w-full md:w-auto flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
+                className="w-full md:w-auto flex-1 bg-sky-600 hover:bg-sky-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 flex items-center justify-center"
               >
                 {saving ? (
                   <>
