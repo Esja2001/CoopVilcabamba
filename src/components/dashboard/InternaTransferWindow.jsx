@@ -112,28 +112,59 @@ const InternaTransferWindow = ({ openWindow }) => {
         ? (coopRes.value.data.beneficiarios || [])
         : [];
 
-      // Log y manejo de errores parciales
-      if ((!externalList || externalList.length === 0) && (!coopList || coopList.length === 0)) {
-        const extErr = extRes.status === 'fulfilled' ? null : (extRes.reason || extRes.value?.error?.message);
-        const coopErr = coopRes.status === 'fulfilled' ? null : (coopRes.reason || coopRes.value?.error?.message);
-        console.error('❌ [TRANSFER] Fallaron ambas llamadas de beneficiarios', { extErr, coopErr });
+      // Verificar si HUBO ERRORES REALES (no solo listas vacías)
+      const extHadError = extRes.status === 'rejected' || (extRes.status === 'fulfilled' && !extRes.value.success && extRes.value.error?.code !== 'NO_BENEFICIARIES_FOUND');
+      const coopHadError = coopRes.status === 'rejected' || (coopRes.status === 'fulfilled' && !coopRes.value.success && coopRes.value.error?.code !== 'NO_COOP_BENEFICIARIES_FOUND');
+
+      // Solo mostrar error si AMBAS APIs fallaron con errores reales (no solo sin datos)
+      if (extHadError && coopHadError) {
+        const extErr = extRes.status === 'fulfilled' ? extRes.value?.error?.message : extRes.reason;
+        const coopErr = coopRes.status === 'fulfilled' ? coopRes.value?.error?.message : coopRes.reason;
+        console.error('❌ [TRANSFER] Fallaron ambas llamadas de beneficiarios con errores reales', { extErr, coopErr });
         setError('No se pudieron cargar los beneficiarios. Intenta más tarde.');
         setBeneficiaries([]);
         return;
       }
 
-      // Normalizar y marcar beneficiarios cooperativa como internos
-      const normalizedCoop = (coopList || []).map(b => ({
-        ...b,
-        isCoopMember: true,
-        isInternal: true
-      }));
+      console.log(`✅ [TRANSFER] Beneficiarios cargados - Externos: ${externalList.length}, Cooperativa: ${coopList.length}`);
 
-      const normalizedExternal = (externalList || []).map(b => ({
-        ...b,
-        isCoopMember: b.isCoopMember || false,
-        isInternal: b.isCoopMember || false
-      }));
+      // Función para detectar si es CACVIL (Cooperativa Vilcabamba)
+      const isCoopVilcabamba = (beneficiario) => {
+        const bankCode = beneficiario.bankCode || '';
+        const bankName = (beneficiario.bank || '').toUpperCase();
+        
+        // Solo CACVIL/Vilcabamba es cooperativa interna
+        // Las Naves (código 136) ahora es EXTERNA
+        return bankCode === 'CACVIL' || 
+               bankCode === '999' ||
+               bankName.includes('CACVIL') ||
+               bankName.includes('VILCABAMBA') ||
+               bankName.includes('COOPERATIVA VILCABAMBA');
+      };
+
+      // Normalizar y RE-VALIDAR beneficiarios cooperativa
+      // Solo marcar como internos si realmente son CACVIL
+      const normalizedCoop = (coopList || []).map(b => {
+        const isReallyInternal = isCoopVilcabamba(b);
+        console.log(`🔍 [TRANSFER] Beneficiario cooperativo: ${b.name} (${b.bank}) - ¿Es CACVIL?: ${isReallyInternal}`);
+        return {
+          ...b,
+          isCoopMember: isReallyInternal,
+          isInternal: isReallyInternal
+        };
+      });
+
+      // Para beneficiarios externos, RECALCULAR si son realmente de CACVIL
+      // (no confiar en el isCoopMember que viene de la API)
+      const normalizedExternal = (externalList || []).map(b => {
+        const isReallyInternal = isCoopVilcabamba(b);
+        console.log(`🔍 [TRANSFER] Beneficiario externo: ${b.name} (${b.bank}) - ¿Es CACVIL?: ${isReallyInternal}`);
+        return {
+          ...b,
+          isCoopMember: isReallyInternal,
+          isInternal: isReallyInternal
+        };
+      });
 
       // Merge y dedupe por accountNumber+bankCode o por cedula
       const mergedMap = new Map();

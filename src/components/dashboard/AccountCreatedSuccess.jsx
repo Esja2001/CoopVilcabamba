@@ -5,11 +5,12 @@ const AccountCreatedSuccess = ({
   onTransferToAccount, 
   onBackToContacts 
 }) => {
-  // Determinar si es una cuenta interna (Las Naves) o externa
-  const isInternalAccount = beneficiaryData.bankCode === '136' || // Código correcto de Las Naves
-    beneficiaryData.bank?.toLowerCase().includes('las naves') || 
-    beneficiaryData.bank?.toLowerCase().includes('cooperativa') ||
-    beneficiaryData.bank?.toLowerCase().includes('coop ac las naves');
+  // Determinar si es una cuenta interna (CACVIL - Cooperativa Vilcabamba) o externa
+  const isInternalAccount = beneficiaryData.bankCode === 'CACVIL' || 
+    beneficiaryData.bankCode === '999' ||
+    beneficiaryData.bank?.toUpperCase().includes('CACVIL') || 
+    beneficiaryData.bank?.toUpperCase().includes('VILCABAMBA') ||
+    beneficiaryData.bank?.toUpperCase().includes('COOPERATIVA VILCABAMBA');
 
   const handleTransfer = () => {
     console.log('🔄 [ACCOUNT-SUCCESS] Iniciando transferencia con datos:', {
@@ -146,7 +147,7 @@ const AccountCreatedSuccess = ({
                       isInternalAccount ? 'text-green-800' : 'text-blue-800'
                     }`}>
                       {isInternalAccount 
-                        ? 'Transferencia Interna - Las Naves' 
+                        ? 'Transferencia Interna - CACVIL' 
                         : 'Transferencia Externa - Otros Bancos'
                       }
                     </p>

@@ -196,8 +196,37 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
               ...prev,
               beneficiary: matchingBeneficiary.id
             }));
+            setLockedBeneficiaryId(matchingBeneficiary.id);
           } else {
             console.log('⚠️ [TRANSFER-EXT] No se encontró el beneficiario preseleccionado en la lista');
+            console.log('🆕 [TRANSFER-EXT] Agregando beneficiario temporal a la lista');
+            
+            // Crear beneficiario temporal
+            const newBeneficiary = {
+              id: preselectedContact.id || `temp-${Date.now()}`,
+              name: preselectedContact.name || preselectedContact.beneficiaryName,
+              cedula: preselectedContact.identificationNumber || preselectedContact.cedula,
+              identificationNumber: preselectedContact.identificationNumber || preselectedContact.cedula,
+              accountNumber: preselectedContact.accountNumber,
+              accountType: preselectedContact.accountTypeName || preselectedContact.accountType,
+              accountTypeCode: preselectedContact.accountTypeCode,
+              bankCode: preselectedContact.bankCode,
+              bank: preselectedContact.bankName || preselectedContact.bank,
+              email: preselectedContact.email || '',
+              phone: preselectedContact.phone || '',
+              documentType: preselectedContact.identificationTypeCode || preselectedContact.documentType || '1',
+              avatar: (preselectedContact.name || preselectedContact.beneficiaryName || 'N').charAt(0).toUpperCase(),
+              isNewlyCreated: true
+            };
+            
+            console.log('📝 [TRANSFER-EXT] Beneficiario temporal creado:', newBeneficiary);
+            
+            // Agregar a la lista
+            setBeneficiaries(prev => [newBeneficiary, ...prev]);
+            
+            // Preseleccionar
+            setFormData(prev => ({ ...prev, beneficiary: newBeneficiary.id }));
+            setLockedBeneficiaryId(newBeneficiary.id);
           }
         }
       } else {

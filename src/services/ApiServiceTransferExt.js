@@ -754,13 +754,16 @@ class ApiServiceTransferExt {
   }
 
   /**
-   * Identificar si un beneficiario es de la cooperativa Las Naves
+   * Identificar si un beneficiario es de CACVIL (Cooperativa Vilcabamba)
    */
-  isCoopLasNaves(beneficiario) {
+  isCoopVilcabamba(beneficiario) {
     // Identificar por código de institución o nombre
-    return beneficiario.bankCode === '136' || 
-           beneficiario.bank.toUpperCase().includes('COOP AC LAS NAVES') ||
-           beneficiario.bank.toUpperCase().includes('LAS NAVES');
+    // CACVIL es cooperativa interna, Las Naves (136) es externa
+    return beneficiario.bankCode === 'CACVIL' || 
+           beneficiario.bankCode === '999' ||
+           beneficiario.bank.toUpperCase().includes('CACVIL') ||
+           beneficiario.bank.toUpperCase().includes('VILCABAMBA') ||
+           beneficiario.bank.toUpperCase().includes('COOPERATIVA VILCABAMBA');
   }
 
   /**
@@ -771,7 +774,7 @@ class ApiServiceTransferExt {
     const externalBeneficiaries = [];
 
     beneficiaries.forEach(beneficiario => {
-      if (this.isCoopLasNaves(beneficiario)) {
+      if (this.isCoopVilcabamba(beneficiario)) {
         coopBeneficiaries.push({ ...beneficiario, isCoopMember: true });
       } else {
         externalBeneficiaries.push({ ...beneficiario, isExternal: true });

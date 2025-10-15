@@ -1,7 +1,7 @@
 import apiService from './apiService';
 
 /**
- * API Service especializado para transferencias entre usuarios de la cooperativa Las Naves
+ * API Service especializado para transferencias entre usuarios de CACVIL (Cooperativa Vilcabamba)
  * Documentación basada en APIs 2300, 2325, 2350, 2355
  */
 
@@ -18,7 +18,7 @@ const API_CONFIG = {
 };
 
 const PROCESS_CODES = {
-  // Códigos para transferencias internas Las Naves
+  // Códigos para transferencias internas CACVIL (Cooperativa Vilcabamba)
   COOP_ACCOUNTS_ORIGIN: '2300',          // Obtener cuentas origen del usuario
   COOP_BENEFICIARIES_DEST: '2325',       // Obtener beneficiarios destino misma institución
   VALIDATE_TRANSFER_FUNDS: '2350',       // Validar disponibilidad de fondos
@@ -310,8 +310,8 @@ class ApiServiceTransfer {
             cedula: beneficiario.idebnf,
             email: beneficiario.bnfema?.trim() || '',
             phone: beneficiario.bnfcel?.trim() || '',
-            bank: beneficiario.nomifi || 'COOP AC LAS NAVES LTDA',
-            bankCode: beneficiario.codifi || '136',
+            bank: beneficiario.nomifi || 'COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA',
+            bankCode: beneficiario.codifi || 'CACVIL', // Valor por defecto, pero se usa el que viene de la API
             accountNumber: beneficiario.codcta,
             accountType: beneficiario.destcu || 'CUENTA DE AHORRO',
             accountTypeCode: beneficiario.codtcu,
