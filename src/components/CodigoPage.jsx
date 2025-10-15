@@ -5,7 +5,7 @@ import backgroundImage from "/public/assets/images/onu.jpg";
 
 
 const backgroundStyle = {
-  backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.88) 50%, rgba(51, 65, 85, 0.92) 100%), url(${backgroundImage})`,
+  backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -413,7 +413,7 @@ const requestSecurityCode = async () => {
           <div className="mb-6">
             <button
               onClick={onBackToLogin}
-              className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200"
+              className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 font-semibold"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
@@ -433,7 +433,7 @@ const requestSecurityCode = async () => {
                         ? 'bg-green-500 text-white'
                         : index === 1
                           ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                          : 'bg-white/20 text-white/60'
+                          : 'bg-slate-300 text-slate-700'
                     }`}>
                       {index === 0 ? (
                         <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -450,7 +450,7 @@ const requestSecurityCode = async () => {
                 ))}
               </div>
               <div className="text-center mt-3">
-                <p className="text-white/90 text-sm font-medium">
+                <p className="text-slate-800 text-sm font-bold">
                   Paso 2 de 2: Código de Seguridad
                 </p>
               </div>
@@ -601,42 +601,42 @@ const requestSecurityCode = async () => {
               </form>
             )}
 
-            {/* Estado: Éxito */}
+            {/* Estado: Éxito - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             {currentStep === 'success' && (
-              <div className="text-center py-12">
+              <div className="text-center py-12 relative z-10">
                 {texts.successIcon}
-                <h3 className="text-white text-xl font-bold mb-2">
+                <h3 className="text-slate-800 text-xl font-bold mb-2">
                   {texts.title.success}
                 </h3>
-                <p className="text-white/80 text-sm mb-6">
+                <p className="text-slate-600 text-sm mb-6 font-medium">
                   {texts.successMessage}
                   {!isBlockingUser && !isChangingPassword && (
                     <>
                       <br/>
-                      <strong>Contraseña temporal: {texts.temporaryPassword}</strong>
+                      <strong className="text-slate-800">Contraseña temporal: {texts.temporaryPassword}</strong>
                     </>
                   )}
                 </p>
                 
                 {!isChangingPassword && !isBlockingUser && (
-                  <div className="bg-blue-500/20 border border-blue-400/30 rounded-xl p-4 mb-6">
-                    <p className="text-white/90 text-sm">
+                  <div className="bg-cyan-50/80 border border-cyan-200/60 rounded-lg p-4 mb-6 backdrop-blur-sm">
+                    <p className="text-cyan-800 text-sm font-medium">
                       <strong>Importante:</strong> Deberá cambiar esta contraseña en su primer inicio de sesión.
                     </p>
                   </div>
                 )}
                 
                 {isBlockingUser && (
-                  <div className="bg-red-500/20 border border-red-400/30 rounded-xl p-4 mb-6">
-                    <p className="text-white/90 text-sm">
+                  <div className="bg-red-50/80 border border-red-200/60 rounded-lg p-4 mb-6 backdrop-blur-sm">
+                    <p className="text-red-800 text-sm font-medium">
                       <strong>Importante:</strong> El usuario necesitará contactar al administrador para reactivar su cuenta.
                     </p>
                   </div>
                 )}
 
                 {isChangingPassword && (
-                  <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
-                    <p className="text-white/90 text-sm">
+                  <div className="bg-cyan-50/80 border border-cyan-200/60 rounded-lg p-4 mb-6 backdrop-blur-sm">
+                    <p className="text-cyan-800 text-sm font-medium">
                       <strong>Importante:</strong> Su contraseña ha sido actualizada. Ya puede iniciar sesión con su nueva contraseña.
                     </p>
                   </div>
@@ -644,25 +644,30 @@ const requestSecurityCode = async () => {
                 
                 <button
                   onClick={onBackToLogin}
-                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-xl transition-colors duration-200 font-medium shadow-lg"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
                 >
-                  🏠 Volver al Login
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
+                  <span className="relative z-10 tracking-wide font-bold uppercase text-sm">🏠 Volver al Login</span>
                 </button>
               </div>
             )}
 
-            {/* Estado: Error */}
+            {/* Estado: Error - ESTILO ACTUALIZADO COMO LOGINPAGE */}
             {currentStep === 'error' && (
-              <div className="text-center py-12">
-                <svg className="w-16 h-16 text-red-400 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
+              <div className="text-center py-12 relative z-10">
+                <svg className="w-16 h-16 text-red-500 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2M12,21L10.91,15.74L2,15L10.91,14.26L12,8L13.09,14.26L22,15L13.09,15.74L12,21Z"/>
                 </svg>
-                <p className="text-white text-lg mb-4">Ocurrió un problema</p>
+                <h3 className="text-slate-800 text-lg font-bold mb-2">Ocurrió un problema</h3>
+                <p className="text-slate-600 text-sm mb-6 font-medium">
+                  No se pudo procesar la solicitud
+                </p>
                 <button
                   onClick={handleRetry}
-                  className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-lg transition-colors duration-200"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
                 >
-                  Intentar nuevamente
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent rounded-lg"></div>
+                  <span className="relative z-10 tracking-wide font-bold uppercase text-sm">Intentar nuevamente</span>
                 </button>
               </div>
             )}

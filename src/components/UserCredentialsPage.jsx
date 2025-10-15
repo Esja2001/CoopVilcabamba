@@ -4,7 +4,7 @@ import apiService from '../services/apiService.js';
 import backgroundImage from "/public/assets/images/onu.jpg";
 
 const backgroundStyle = {
-  backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.88) 50%, rgba(51, 65, 85, 0.92) 100%), url(${backgroundImage})`,
+  backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -28,6 +28,10 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
   const [alert, setAlert] = useState(null);
   const [isAnimated, setIsAnimated] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
+  
+  // Estados para mostrar/ocultar contraseñas
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const debounceRef = useRef(null);
 
@@ -266,7 +270,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
             <div className="mb-6">
               <button
                 onClick={onBack}
-                className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200"
+                className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 font-semibold"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
                 <span>Regresar</span>
@@ -283,7 +287,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                         ? 'bg-green-500 text-white'
                         : index === 1
                           ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                          : 'bg-white/20 text-white/60'
+                          : 'bg-slate-300 text-slate-700'
                     }`}>
                       {index === 0 ? (
                         <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -297,14 +301,14 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                       <div className={`w-8 h-0.5 mx-1 transition-all duration-300 ${
                         index < 1
                           ? 'bg-green-500'
-                          : 'bg-white/20'
+                          : 'bg-slate-300'
                       }`}></div>
                     )}
                   </div>
                 ))}
               </div>
               <div className="text-center mt-3">
-                <p className="text-white/90 text-sm font-medium">
+                <p className="text-slate-800 text-sm font-bold">
                   Paso 2 de 4: Términos y Credenciales
                 </p>
               </div>
@@ -463,7 +467,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
             <button
               onClick={() => setCurrentStep('terms')}
               disabled={isLoading}
-              className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 disabled:opacity-50"
+              className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 disabled:opacity-50 font-semibold"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
               <span>Regresar a términos</span>
@@ -480,7 +484,7 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                       ? 'bg-green-500 text-white'
                       : index === 1
                         ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                        : 'bg-white/20 text-white/60'
+                        : 'bg-slate-300 text-slate-700'
                   }`}>
                     {index === 0 ? (
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -494,14 +498,14 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                     <div className={`w-8 h-0.5 mx-1 transition-all duration-300 ${
                       index < 1
                         ? 'bg-green-500'
-                        : 'bg-white/20'
+                        : 'bg-slate-300'
                     }`}></div>
                   )}
                 </div>
               ))}
             </div>
             <div className="text-center mt-3">
-              <p className="text-white/90 text-sm font-medium">
+              <p className="text-slate-800 text-sm font-bold">
                 Paso 2 de 4: Términos y Credenciales
               </p>
             </div>
@@ -626,33 +630,33 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                 </label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="h-4 w-4 text-slate-500 group-focus-within:text-cyan-600 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
                     </svg>
                   </div>
                   <input
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={(e) => handleInputChange('password', e.target.value)}
                     placeholder="Mínimo 8 caracteres con mayúscula, minúscula y número"
                     disabled={isLoading || !formData.username}
-                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
                       validationStatus.password.valid === false ? 'border-red-400 ring-2 ring-red-200' :
-                      validationStatus.password.valid === true ? 'border-blue-400 ring-2 ring-blue-200' :
+                      validationStatus.password.valid === true ? 'border-cyan-400 ring-2 ring-cyan-200' :
                       'border-slate-300 hover:border-slate-400'
                     }`}
                   />
                   
-                  {/* Indicador de validación */}
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  {/* Indicador de validación y botón de ojo */}
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center space-x-2">
                     {validationStatus.password.checking ? (
-                      <svg className="animate-spin h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 714 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
                     ) : validationStatus.password.valid === true ? (
-                      <svg className="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <svg className="h-4 w-4 text-cyan-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
                     ) : validationStatus.password.valid === false ? (
@@ -660,6 +664,22 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"/>
                       </svg>
                     ) : null}
+                    
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      disabled={!formData.password}
+                      className="text-slate-500 hover:text-slate-700 transition-colors duration-300 p-1 rounded-lg hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      tabIndex={-1}
+                    >
+                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        {showPassword ? (
+                          <path d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.09L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.76,7.13 11.37,7 12,7Z" />
+                        ) : (
+                          <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                        )}
+                      </svg>
+                    </button>
                   </div>
                 </div>
                 
@@ -688,15 +708,36 @@ const UserCredentialsPage = ({ registrationData, onNext, onBack }) => {
                   </div>
                   <input
                     id="confirmPassword"
-                    type="password"
+                    type={showConfirmPassword ? "text" : "password"}
                     value={formData.confirmPassword}
                     onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                     placeholder="Confirme su contraseña"
                     disabled={isLoading || !formData.password}
-                    className={`block w-full pl-10 pr-3 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
-                      errors.confirmPassword ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 hover:border-slate-400'
+                    className={`block w-full pl-10 pr-12 py-3 border-2 rounded-lg bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-sm hover:shadow-md ${
+                      errors.confirmPassword ? 'border-red-400 ring-2 ring-red-200' : 
+                      formData.password && formData.confirmPassword && formData.password === formData.confirmPassword ? 'border-cyan-400 ring-2 ring-cyan-200' :
+                      'border-slate-300 hover:border-slate-400'
                     }`}
                   />
+                  
+                  {/* Botón de ojo para mostrar/ocultar contraseña */}
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      disabled={!formData.confirmPassword}
+                      className="text-slate-500 hover:text-slate-700 transition-colors duration-300 p-1 rounded-lg hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      tabIndex={-1}
+                    >
+                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                        {showConfirmPassword ? (
+                          <path d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.09L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.76,7.13 11.37,7 12,7Z" />
+                        ) : (
+                          <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                        )}
+                      </svg>
+                    </button>
+                  </div>
                 </div>
                 {errors.confirmPassword && (
                   <p className="text-red-600 text-xs mt-1 font-medium">{errors.confirmPassword}</p>

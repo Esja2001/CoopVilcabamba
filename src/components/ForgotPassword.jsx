@@ -6,7 +6,7 @@ import backgroundImage from "/public/assets/images/onu.jpg";
 
 // Match RegisterPage overlay: dark gradient + background image for opacity/dim effect
 const backgroundStyle = {
-  backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.88) 50%, rgba(51, 65, 85, 0.92) 100%), url(${backgroundImage})`,
+  backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -386,7 +386,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
           <div className="mb-6">
             <button
               onClick={onBackToLogin}
-              className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200"
+              className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 font-semibold"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
@@ -405,7 +405,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
                       ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
                       : index < ['password', 'identity'].indexOf(internalView)
                         ? 'bg-green-500 text-white'
-                        : 'bg-white/20 text-white/60'
+                        : 'bg-slate-300 text-slate-700'
                   }`}>
                     {index < ['password', 'identity'].indexOf(internalView) ? (
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -419,7 +419,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
                     <div className={`w-12 h-0.5 mx-2 transition-all duration-300 ${
                       index < ['password', 'identity'].indexOf(internalView)
                         ? 'bg-green-500'
-                        : 'bg-white/20'
+                        : 'bg-slate-300'
                     }`}></div>
                   )}
                 </div>

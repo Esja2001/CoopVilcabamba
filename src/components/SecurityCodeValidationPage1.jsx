@@ -4,7 +4,7 @@ import apiService from '../services/apiService.js';
 import backgroundImage from "/public/assets/images/onu.jpg";
 
 const backgroundStyle = {
-  backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.88) 50%, rgba(51, 65, 85, 0.92) 100%), url(${backgroundImage})`,
+  backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -235,7 +235,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
               <button
                 onClick={onBack}
                 disabled={isLoading}
-                className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200"
+                className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 font-semibold"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
                 <span>Regresar</span>
@@ -253,7 +253,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
                       ? 'bg-green-500 text-white'
                       : index === 3
                         ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                        : 'bg-white/20 text-white/60'
+                        : 'bg-slate-300 text-slate-700'
                   }`}>
                     {index < 3 ? (
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -274,7 +274,7 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
               ))}
             </div>
             <div className="text-center mt-3">
-              <p className="text-white/90 text-sm font-medium">
+              <p className="text-slate-800 text-sm font-bold">
                 Paso 4 de 4: Código de Seguridad
               </p>
             </div>
@@ -443,28 +443,28 @@ const SecurityCodeValidationPage1 = ({ registrationData, onSuccess, onBack }) =>
             <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
               <svg className="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">Procesando Registro</h2>
-            <p className="text-white/80 text-sm">Guardando sus datos de forma segura...</p>
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">Procesando Registro</h2>
+            <p className="text-slate-700 text-sm font-medium">Guardando sus datos de forma segura...</p>
           </div>
 
           {alertUI}
 
           <div className="flex justify-center mb-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-600"></div>
           </div>
 
-          <div className="bg-white/10 rounded-xl p-6 border border-white/20">
+          <div className="bg-white/80 rounded-xl p-6 border border-slate-200 backdrop-blur-sm">
             <div className="space-y-3">
-              <div className="flex items-center text-sm text-white/80">
+              <div className="flex items-center text-sm text-slate-700 font-medium">
                 <div className="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
                 Código de seguridad validado
               </div>
-              <div className="flex items-center text-sm text-white/80">
+              <div className="flex items-center text-sm text-slate-700 font-medium">
                 <div className="w-4 h-4 bg-green-500 rounded-full mr-3 animate-pulse"></div>
                 Guardando credenciales y preguntas...
               </div>
-              <div className="flex items-center text-sm text-white/60">
-                <div className="w-4 h-4 bg-white/20 rounded-full mr-3"></div>
+              <div className="flex items-center text-sm text-slate-600">
+                <div className="w-4 h-4 bg-slate-300 rounded-full mr-3"></div>
                 Finalizando configuración...
               </div>
             </div>
