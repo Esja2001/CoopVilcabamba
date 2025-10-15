@@ -7,8 +7,7 @@ const CodeSecurityInternalTransfer = ({
   transferData, 
   onBack, 
   onTransferSuccess,
-  onTransferError,
-  openWindow // ✅ RECIBIR openWindow COMO PROP
+  onTransferError
 }) => {
   const [otpCode, setOtpCode] = useState(['', '', '', '', '', '']);
   const [loading, setLoading] = useState(false);
@@ -25,6 +24,13 @@ const CodeSecurityInternalTransfer = ({
   // ✅ NUEVO ESTADO PARA CONTROLAR LA ANIMACIÓN DE ERROR
   const [showErrorAnimation, setShowErrorAnimation] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
+  // ✅ NUEVO: Sistema de 3 intentos
+  const [attempts, setAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3;
+  
+  // ✅ NUEVO: Timer para regresar después del CancelComponent
+  const cancelTimerRef = useRef(null);
 
   // Referencias para los inputs
   const inputRefs = useRef([]);
@@ -178,16 +184,35 @@ const CodeSecurityInternalTransfer = ({
         
         // ✅ MANEJO ESPECÍFICO DE ERRORES
         if (result.error.code === 'INVALID_OTP_CODE') {
-          setError('Código incorrecto. Verifica e intenta nuevamente');
-          setOtpCode(['', '', '', '', '', '']);
-          inputRefs.current[0]?.focus();
+          // ✅ INCREMENTAR INTENTOS
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
+          
+          console.log(`⚠️ [OTP-ATTEMPT] Intento ${newAttempts} de ${MAX_ATTEMPTS} fallido`);
+          
+          if (newAttempts >= MAX_ATTEMPTS) {
+            // ✅ 3 INTENTOS FALLIDOS - MOSTRAR CANCELCOMPONENT
+            console.log('🚨 [MAX-ATTEMPTS] Se alcanzó el máximo de intentos, mostrando CancelComponent');
+            setErrorMessage('Has superado el número máximo de intentos (3). La transferencia será cancelada.');
+            setShowErrorAnimation(true);
+            // NO llamar onTransferError aquí, se llamará después del CancelComponent
+          } else {
+            // ✅ AÚN HAY INTENTOS DISPONIBLES - NO DESMONTAR EL COMPONENTE
+            const remainingAttempts = MAX_ATTEMPTS - newAttempts;
+            setError(`Código incorrecto. Te quedan ${remainingAttempts} ${remainingAttempts === 1 ? 'intento' : 'intentos'}`);
+            setOtpCode(['', '', '', '', '', '']);
+            inputRefs.current[0]?.focus();
+            // NO llamar onTransferError, permitir al usuario reintentar
+          }
         } else if (result.error.code === 'EXPIRED_OTP_CODE') {
           setError('El código ha expirado. Solicita uno nuevo');
           setResendCooldown(0); // Permitir reenvío inmediato
+          // NO desmontar, permitir reenvío
         } else if (result.error.code === 'INVALID_OTP_SESSION') {
           setError('La sesión de seguridad ha expirado. Solicita un nuevo código');
           setOtpCode(['', '', '', '', '', '']);
           setResendCooldown(0);
+          // NO desmontar, permitir reenvío
         } else if (result.error.code === 'SERVER_ERROR' || result.error.code === 'NETWORK_ERROR' || result.error.code === 'TIMEOUT_ERROR') {
           // ✅ ERRORES GRAVES - MOSTRAR ANIMACIÓN DE CANCELACIÓN
           console.log('🚨 [TRANSFER-ERROR] Error grave detectado, mostrando animación de cancelación');
@@ -195,10 +220,10 @@ const CodeSecurityInternalTransfer = ({
           setShowErrorAnimation(true);
           return; // No ejecutar onTransferError aún
         } else {
+          // ✅ OTROS ERRORES - DESMONTAR Y REGRESAR
           setError(result.error.message || 'Error al procesar la transferencia');
+          onTransferError(result.error);
         }
-        
-        onTransferError(result.error);
       }
     } catch (error) {
       console.error('💥 [TRANSFER-CRASH] 🔴 Error inesperado:', error);
@@ -242,11 +267,41 @@ const CodeSecurityInternalTransfer = ({
 
   // ✅ FUNCIÓN PARA MANEJAR CUANDO TERMINA LA ANIMACIÓN DE ERROR
   const handleErrorAnimationComplete = useCallback(() => {
-    console.log('🚨 [ERROR-ANIMATION-COMPLETE] Animación de error terminada, regresando...');
-    setShowErrorAnimation(false);
-    setErrorMessage('');
-    onTransferError({ message: errorMessage, code: 'CANCELLED_BY_TIMEOUT' });
-  }, [errorMessage, onTransferError]);
+    console.log('🚨 [ERROR-ANIMATION-COMPLETE] Animación de error terminada');
+    
+    // ✅ SI SE ALCANZÓ EL MÁXIMO DE INTENTOS, ESPERAR 5 SEGUNDOS Y REGRESAR
+    if (attempts >= MAX_ATTEMPTS) {
+      console.log('⏰ [MAX-ATTEMPTS] Iniciando timer de 5 segundos para regresar...');
+      
+      // ✅ MANTENER VISIBLE EL CANCELCOMPONENT POR 5 SEGUNDOS
+      cancelTimerRef.current = setTimeout(() => {
+        console.log('🔙 [TIMEOUT] 5 segundos transcurridos, regresando a InternaTransferWindow...');
+        setShowErrorAnimation(false);
+        setErrorMessage('');
+        
+        // ✅ ENVIAR CÓDIGO ESPECIAL PARA QUE SAMEACCOUNTS REGRESE A INTERNA TRANSFER WINDOW
+        onTransferError({ 
+          message: 'Máximo de intentos alcanzado', 
+          code: 'MAX_ATTEMPTS_REACHED' 
+        });
+      }, 5000); // 5 segundos
+    } else {
+      // ✅ ERROR GRAVE (no por intentos) - REGRESAR INMEDIATAMENTE
+      setShowErrorAnimation(false);
+      setErrorMessage('');
+      onTransferError({ message: errorMessage, code: 'CANCELLED_BY_ERROR' });
+    }
+  }, [attempts, errorMessage, onTransferError]);
+  
+  // ✅ CLEANUP del timer al desmontar
+  useEffect(() => {
+    return () => {
+      if (cancelTimerRef.current) {
+        clearTimeout(cancelTimerRef.current);
+        cancelTimerRef.current = null;
+      }
+    };
+  }, []);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('es-EC', {
@@ -279,6 +334,7 @@ const CodeSecurityInternalTransfer = ({
         onComplete={handleErrorAnimationComplete}
         errorMessage={errorMessage}
         transferType="internal"
+        countdown={attempts >= MAX_ATTEMPTS ? 5 : 300}
       />
     );
   }
@@ -433,7 +489,7 @@ const CodeSecurityInternalTransfer = ({
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Ingresa el código de seguridad</h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 mb-2">
                     Código enviado a tu celular registrado
                   </p>
                 </div>

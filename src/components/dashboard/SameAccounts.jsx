@@ -229,8 +229,15 @@ const SameAccounts = ({ onBack, openWindow }) => {
 
   const handleTransferError = (error) => {
     console.error('❌ [SAME-ACCOUNTS] Error en transferencia:', error);
-    setError(error.message);
-    setCurrentStep('form');
+    
+    // ✅ SI EL ERROR ES POR INTENTOS MÁXIMOS, REGRESAR A INTERNA TRANSFER WINDOW
+    if (error.code === 'MAX_ATTEMPTS_REACHED') {
+      console.log('🔙 [SAME-ACCOUNTS] Máximo de intentos alcanzado, regresando a InternaTransferWindow...');
+      onBack(); // Regresar a InternaTransferWindow
+    } else {
+      setError(error.message);
+      setCurrentStep('form');
+    }
   };
 
   const handleBackFromOTP = () => {
@@ -460,7 +467,6 @@ const SameAccounts = ({ onBack, openWindow }) => {
         onBack={handleBackFromOTP}
         onTransferSuccess={handleTransferSuccess}
         onTransferError={handleTransferError}
-        openWindow={openWindow} // ✅ PASAR openWindow COMO PROP
       />
     );
   }

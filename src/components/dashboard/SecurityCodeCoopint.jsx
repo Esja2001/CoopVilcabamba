@@ -24,6 +24,13 @@ const SecurityquestionCoopint = ({
   // ✅ NUEVO ESTADO PARA CONTROLAR LA ANIMACIÓN DE ERROR
   const [showErrorAnimation, setShowErrorAnimation] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
+  // ✅ NUEVO: Sistema de 3 intentos
+  const [attempts, setAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3;
+  
+  // ✅ NUEVO: Timer para regresar después del CancelComponent
+  const cancelTimerRef = useRef(null);
 
   // Referencias para los inputs
   const inputRefs = useRef([]);
@@ -53,6 +60,16 @@ const SecurityquestionCoopint = ({
     }
     return () => clearTimeout(timer);
   }, [resendCooldown]);
+  
+  // ✅ CLEANUP del timer al desmontar
+  useEffect(() => {
+    return () => {
+      if (cancelTimerRef.current) {
+        clearTimeout(cancelTimerRef.current);
+        cancelTimerRef.current = null;
+      }
+    };
+  }, []);
 
   // Función para solicitar código OTP (usando API 2155)
   const requestOTPCode = async () => {
@@ -174,18 +191,37 @@ const SecurityquestionCoopint = ({
       } else {
         console.error('❌ [COOP-TRANSFER-ERROR] Error ejecutando transferencia cooperativa:', result.error);
         
-        // ✅ MANEJO ESPECÍFICO DE ERRORES
+        // ✅ MANEJO ESPECÍFICO DE ERRORES CON SISTEMA DE 3 INTENTOS
         if (result.error.code === 'INVALID_OTP_CODE') {
-          setError('Código incorrecto. Verifica e intenta nuevamente');
-          setOtpCode(['', '', '', '', '', '']);
-          inputRefs.current[0]?.focus();
+          // ✅ INCREMENTAR INTENTOS
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
+          
+          console.log(`⚠️ [COOP-OTP-ATTEMPT] Intento ${newAttempts} de ${MAX_ATTEMPTS} fallido`);
+          
+          if (newAttempts >= MAX_ATTEMPTS) {
+            // ✅ 3 INTENTOS FALLIDOS - MOSTRAR CANCELCOMPONENT
+            console.log('🚨 [COOP-MAX-ATTEMPTS] Se alcanzó el máximo de intentos, mostrando CancelComponent');
+            setErrorMessage('Has superado el número máximo de intentos (3). La transferencia será cancelada.');
+            setShowErrorAnimation(true);
+            // NO llamar onTransferError aquí, se llamará después del CancelComponent
+          } else {
+            // ✅ AÚN HAY INTENTOS DISPONIBLES - NO DESMONTAR EL COMPONENTE
+            const remainingAttempts = MAX_ATTEMPTS - newAttempts;
+            setError(`Código incorrecto. Te quedan ${remainingAttempts} ${remainingAttempts === 1 ? 'intento' : 'intentos'}`);
+            setOtpCode(['', '', '', '', '', '']);
+            inputRefs.current[0]?.focus();
+            // NO llamar onTransferError, permitir al usuario reintentar
+          }
         } else if (result.error.code === 'EXPIRED_OTP_CODE') {
           setError('El código ha expirado. Solicita uno nuevo');
           setResendCooldown(0); // Permitir reenvío inmediato
+          // NO desmontar, permitir reenvío
         } else if (result.error.code === 'INVALID_OTP_SESSION') {
           setError('La sesión de seguridad ha expirado. Solicita un nuevo código');
           setOtpCode(['', '', '', '', '', '']);
           setResendCooldown(0);
+          // NO desmontar, permitir reenvío
         } else if (result.error.code === 'SERVER_ERROR' || result.error.code === 'NETWORK_ERROR' || result.error.code === 'TIMEOUT_ERROR') {
           // ✅ ERRORES GRAVES - MOSTRAR ANIMACIÓN DE CANCELACIÓN
           console.log('🚨 [COOP-TRANSFER-ERROR] Error grave detectado, mostrando animación de cancelación');
@@ -193,10 +229,10 @@ const SecurityquestionCoopint = ({
           setShowErrorAnimation(true);
           return; // No ejecutar onTransferError aún
         } else {
+          // ✅ OTROS ERRORES - DESMONTAR Y REGRESAR
           setError(result.error.message || 'Error al procesar la transferencia cooperativa');
+          onTransferError(result.error);
         }
-        
-        onTransferError(result.error);
       }
     } catch (error) {
       console.error('💥 [COOP-TRANSFER-CRASH] Error inesperado:', error);
@@ -220,11 +256,31 @@ const SecurityquestionCoopint = ({
 
   // ✅ FUNCIÓN PARA MANEJAR CUANDO TERMINA LA ANIMACIÓN DE ERROR
   const handleErrorAnimationComplete = useCallback(() => {
-    console.log('🚨 [COOP-ERROR-ANIMATION-COMPLETE] Animación de error terminada, regresando...');
-    setShowErrorAnimation(false);
-    setErrorMessage('');
-    onTransferError({ message: errorMessage, code: 'CANCELLED_BY_TIMEOUT' });
-  }, [errorMessage, onTransferError]);
+    console.log('🚨 [COOP-ERROR-ANIMATION-COMPLETE] Animación de error terminada');
+    
+    // ✅ SI SE ALCANZÓ EL MÁXIMO DE INTENTOS, ESPERAR 5 SEGUNDOS Y REGRESAR
+    if (attempts >= MAX_ATTEMPTS) {
+      console.log('⏰ [COOP-MAX-ATTEMPTS] Iniciando timer de 5 segundos para regresar...');
+      
+      // ✅ MANTENER VISIBLE EL CANCELCOMPONENT POR 5 SEGUNDOS
+      cancelTimerRef.current = setTimeout(() => {
+        console.log('🔙 [COOP-TIMEOUT] 5 segundos transcurridos, regresando a InternaTransferWindow...');
+        setShowErrorAnimation(false);
+        setErrorMessage('');
+        
+        // ✅ ENVIAR CÓDIGO ESPECIAL PARA QUE EL COMPONENTE PADRE REGRESE A INTERNA TRANSFER WINDOW
+        onTransferError({ 
+          message: 'Máximo de intentos alcanzado', 
+          code: 'MAX_ATTEMPTS_REACHED' 
+        });
+      }, 5000); // 5 segundos
+    } else {
+      // ✅ ERROR GRAVE (no por intentos) - REGRESAR INMEDIATAMENTE
+      setShowErrorAnimation(false);
+      setErrorMessage('');
+      onTransferError({ message: errorMessage, code: 'CANCELLED_BY_ERROR' });
+    }
+  }, [attempts, errorMessage, onTransferError]);
 
   // Función para reenviar código
   const handleResendCode = async () => {
@@ -277,6 +333,7 @@ const SecurityquestionCoopint = ({
         onComplete={handleErrorAnimationComplete}
         errorMessage={errorMessage}
         transferType="coop"
+        countdown={attempts >= MAX_ATTEMPTS ? 5 : 300}
       />
     );
   }

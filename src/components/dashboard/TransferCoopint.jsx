@@ -357,8 +357,15 @@ const TransferCoopint = ({ onBack, preselectedContact = null, onShowAddAccount }
 
   const handleTransferError = (error) => {
     console.error('❌ [COOP-TRANSFER] Error en transferencia:', error);
-    setError(error.message);
-    setCurrentStep('form');
+    
+    // ✅ SI EL ERROR ES POR INTENTOS MÁXIMOS, REGRESAR A INTERNA TRANSFER WINDOW
+    if (error.code === 'MAX_ATTEMPTS_REACHED') {
+      console.log('🔙 [COOP-TRANSFER] Máximo de intentos alcanzado, regresando a InternaTransferWindow...');
+      onBack(); // Regresar a InternaTransferWindow
+    } else {
+      setError(error.message);
+      setCurrentStep('form');
+    }
   };
 
   const handleBackFromOTP = () => {

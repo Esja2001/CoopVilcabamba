@@ -349,8 +349,15 @@ const TransferExt = ({ onBack, preselectedContact = null, onShowAddAccount }) =>
 
   const handleTransferError = (error) => {
     console.error('❌ [EXTERNAL-TRANSFER] Error en transferencia externa:', error);
-    setError(error.message);
-    setCurrentStep('form');
+    
+    // ✅ SI EL ERROR ES POR INTENTOS MÁXIMOS, REGRESAR A EXTERNA TRANSFER WINDOW
+    if (error.code === 'MAX_ATTEMPTS_REACHED') {
+      console.log('🔙 [EXTERNAL-TRANSFER] Máximo de intentos alcanzado, regresando a ExternaTransferWindow...');
+      onBack(); // Regresar a ExternaTransferWindow
+    } else {
+      setError(error.message);
+      setCurrentStep('form');
+    }
   };
 
   const handleBackFromOTP = () => {

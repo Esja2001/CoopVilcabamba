@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const CancelComponent = ({ onComplete, errorMessage = 'Error en la transferencia', transferType = 'internal' }) => {
+const CancelComponent = ({ onComplete, errorMessage = 'Error en la transferencia', transferType = 'internal', countdown = 300 }) => {
   const timerRef = useRef(null);
   const hasCalledOnComplete = useRef(false);
 
@@ -18,14 +18,15 @@ const CancelComponent = ({ onComplete, errorMessage = 'Error en la transferencia
       clearTimeout(timerRef.current);
     }
     
-    // Después de 5 minutos (300 segundos), cancelar automáticamente la transferencia
+    // Usar el countdown recibido por props (en segundos)
+    const countdownMs = countdown * 1000;
     timerRef.current = setTimeout(() => {
       if (!hasCalledOnComplete.current) {
-        console.log('⏰ [CANCEL-COMPONENT] Tiempo de espera agotado (5 min), cancelando transferencia...');
+        console.log(`⏰ [CANCEL-COMPONENT] Tiempo de espera agotado (${countdown}s), cancelando transferencia...`);
         hasCalledOnComplete.current = true;
         onComplete();
       }
-    }, 300000); // 5 minutos = 300,000 ms
+    }, countdownMs);
 
     return () => {
       console.log('🧹 [CANCEL-COMPONENT] Limpiando timer de animación de error');
@@ -166,7 +167,12 @@ const CancelComponent = ({ onComplete, errorMessage = 'Error en la transferencia
                 />
               ))}
             </div>
-            <span className="text-gray-500 text-sm ml-3">Cancelación automática en 5 min...</span>
+            <span className="text-gray-500 text-sm ml-3">
+              {countdown >= 60 
+                ? `Regresando en ${Math.ceil(countdown / 60)} min...`
+                : `Regresando en ${countdown} seg...`
+              }
+            </span>
           </div>
         </div>
       </div>
