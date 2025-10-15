@@ -125,7 +125,7 @@ const AccountCreatedSuccess = ({
                 </svg>
                 <span className="text-lg">
                   Transferir a esta cuenta
-                  {isInternalAccount ? ' (Cooperativa Las Naves)' : ' (Transferencia Externa)'}
+                  {isInternalAccount ? ' (Cooperativa CACVIL)' : ' (Transferencia Externa)'}
                 </span>
               </button>
 

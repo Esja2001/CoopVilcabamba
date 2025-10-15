@@ -357,7 +357,7 @@ const SecurityquestionCoopint = ({
       
       <div className="text-center">
         <h1 className="text-lg font-bold text-slate-800">Código de Seguridad</h1>
-        <p className="text-sm text-slate-500">Transferencia cooperativa Las Naves</p>
+        <p className="text-sm text-slate-500">Transferencia cooperativa CACVIL</p>
       </div>
       
       <div className="w-20"></div>
@@ -462,7 +462,7 @@ const SecurityquestionCoopint = ({
 
                 <div className="mt-3 p-3 bg-amber-50/80 rounded-lg border border-amber-200/60 backdrop-blur-sm">
                   <p className="text-xs text-amber-700">
-                    <strong>Transferencia cooperativa:</strong> Sin comisiones entre miembros de Las Naves
+                    <strong>Transferencia cooperativa:</strong> Sin comisiones entre miembros de CACVIL
                   </p>
                 </div>
               </div>

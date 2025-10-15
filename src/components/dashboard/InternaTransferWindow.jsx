@@ -295,21 +295,27 @@ const InternaTransferWindow = ({ openWindow }) => {
     }
   };
 
-  // NUEVA FUNCIÓN: Determinar si el beneficiario es de Las Naves o externo
-  const isCoopLasNaves = (contact) => {
-    // Verificar por código de banco
-    if (contact.bankCode === '136') {
+  // FUNCIÓN: Determinar si el beneficiario es de CACVIL (Cooperativa Vilcabamba) o externo
+  const isCoopVilcabamba = (contact) => {
+    // Verificar por código de banco CACVIL
+    // Nota: Actualizar este código según el código oficial de CACVIL en el sistema bancario
+    if (contact.bankCode === 'CACVIL' || contact.bankCode === '999') {
       return true;
     }
 
     // Verificar por nombre del banco
     const bankName = contact.bank || contact.bankName || '';
-    return bankName.toUpperCase().includes('COOP AC LAS NAVES') ||
-      bankName.toUpperCase().includes('LAS NAVES') ||
-      bankName.toUpperCase().includes('COOPERATIVA LAS NAVES');
+    const upperBankName = bankName.toUpperCase();
+    
+    return upperBankName.includes('CACVIL') ||
+      upperBankName.includes('VILCABAMBA') ||
+      upperBankName.includes('COOPERATIVA VILCABAMBA') ||
+      upperBankName.includes('COOP VILCABAMBA') ||
+      upperBankName.includes('COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA') ||
+      upperBankName.includes('COAC VILCABAMBA');
   };
 
-  // NUEVA FUNCIÓN: Manejar transferencia según tipo de banco
+  // FUNCIÓN: Manejar transferencia según tipo de banco
   const handleTransferToContact = (contact) => {
     setActiveMenuId(null);
 
@@ -319,8 +325,8 @@ const InternaTransferWindow = ({ openWindow }) => {
     // ✅ GUARDAR el contacto seleccionado
     setSelectedContactForTransfer(contact);
 
-    if (isCoopLasNaves(contact)) {
-      console.log('✅ [TRANSFER-ROUTE] Es miembro de Las Naves, redirigiendo a TransferCoopint');
+    if (isCoopVilcabamba(contact)) {
+      console.log('✅ [TRANSFER-ROUTE] Es miembro de CACVIL (Cooperativa Vilcabamba), redirigiendo a TransferCoopint');
       setCurrentView('transferCoop');
     } else {
       console.log('🌐 [TRANSFER-ROUTE] Es banco externo, redirigiendo a TransferExt');
@@ -366,7 +372,7 @@ const InternaTransferWindow = ({ openWindow }) => {
 
     // Dirigir al formulario correspondiente según el tipo de banco
     if (isInternal) {
-      console.log('🏦 [TRANSFER] Dirigiendo a transferencia cooperativa (Las Naves)');
+      console.log('🏦 [TRANSFER] Dirigiendo a transferencia cooperativa (CACVIL - Vilcabamba)');
       setCurrentView('transferCoop');
     } else {
       console.log('🏛️ [TRANSFER] Dirigiendo a transferencia externa');
@@ -543,7 +549,7 @@ const InternaTransferWindow = ({ openWindow }) => {
                   >
                     <div className="flex items-center space-x-4">
                       {/* Avatar */}
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-md flex-shrink-0 shadow-md ${isCoopLasNaves(contact)
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-md flex-shrink-0 shadow-md ${isCoopVilcabamba(contact)
                           ? 'bg-gradient-to-r from-sky-500 to-sky-600'
                           : 'bg-gradient-to-r from-gray-600 to-gray-700'
                         }`}>

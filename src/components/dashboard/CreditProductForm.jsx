@@ -316,14 +316,14 @@ const CreditProductForm = () => {
       // Título principal (fontSize 10)
       doc.setFontSize(10);
       doc.setFont("helvetica", "bold");
-      doc.text("COOPERATIVA LAS NAVES LTDA", pageWidth / 2, 18, {
+      doc.text("COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA", pageWidth / 2, 18, {
         align: "center",
       });
 
       // Subtítulo (fontSize 11)
       doc.setFontSize(11);
       doc.setFont("helvetica", "normal");
-      doc.text("LAS NAVES - BOLIVAR", pageWidth / 2, 24, { align: "center" });
+      doc.text("CACVIL - LOJA", pageWidth / 2, 24, { align: "center" });
 
       // Línea separadora
       doc.setLineWidth(0.3);
@@ -439,7 +439,7 @@ const CreditProductForm = () => {
             // Título compacto en páginas adicionales
             doc.setFontSize(10);
             doc.setFont("helvetica", "bold");
-            doc.text("COOPERATIVA LAS NAVES LTDA", pageWidth / 2, 18, { align: "center" });
+            doc.text("COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA", pageWidth / 2, 18, { align: "center" });
             
             doc.setFontSize(8);
             doc.setFont("helvetica", "normal");
@@ -660,11 +660,11 @@ const CreditProductForm = () => {
                 {/* Primera fila */}
                 <div className="flex justify-between">
                   <span className="font-semibold text-gray-600">Empresa:</span>
-                  <span className="text-gray-800">{clienteInfo?.nomemp || 'COOPERATIVA LAS NAVES LTDA'}</span>
+                  <span className="text-gray-800">{clienteInfo?.nomemp || 'COOPERATIVA DE AHORRO Y CREDITO VILCABAMBA'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-semibold text-gray-600">Oficina:</span>
-                  <span className="text-gray-800">{clienteInfo?.nomofi || 'LAS NAVES - BOLIVAR'}</span>
+                  <span className="text-gray-800">{clienteInfo?.nomofi || 'CACVIL - LOJA'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-semibold text-gray-600">Cliente:</span>

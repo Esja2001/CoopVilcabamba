@@ -562,24 +562,24 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
     avatar: formData.beneficiaryName.charAt(0).toUpperCase()
   };
   
-  // Detectar si es Las Naves o banco externo
-  const isLasNaves = detectIfLasNaves(contactForTransfer.bankCode);
+  // Detectar si es CACVIL (Cooperativa Vilcabamba) o banco externo
+  const isCoopVilcabamba = detectIfCoopVilcabamba(contactForTransfer.bankCode);
   
-  console.log(`🏦 [NEW-CONTACT] Banco ${contactForTransfer.bankName} (${contactForTransfer.bankCode}) detectado como ${isLasNaves ? 'Las Naves (interno)' : 'externo'}`);
+  console.log(`🏦 [NEW-CONTACT] Banco ${contactForTransfer.bankName} (${contactForTransfer.bankCode}) detectado como ${isCoopVilcabamba ? 'CACVIL (interno)' : 'externo'}`);
   console.log('📋 [NEW-CONTACT] Datos completos del contacto:', JSON.stringify(contactForTransfer, null, 2));
   
   // Llamar al callback con los datos y el tipo de transferencia
   if (onProceedToTransfer) {
     onProceedToTransfer({
       contactData: contactForTransfer,
-      isInternal: isLasNaves
+      isInternal: isCoopVilcabamba
     });
   }
 };
-  // Función para detectar si es Las Naves
-  const detectIfLasNaves = (bankCode) => {
-  // Lista de códigos que corresponden a Las Naves - CORREGIDO
-  const lasNavesCodes = ['136']; // Código correcto de Las Naves
+  // Función para detectar si es CACVIL (Cooperativa Vilcabamba)
+  const detectIfCoopVilcabamba = (bankCode) => {
+  // Lista de códigos que corresponden a CACVIL - Cooperativa Vilcabamba
+  const cacvilCodes = ['CACVIL', '999']; // Códigos de CACVIL
   
   // Obtener información del banco por código
   const bankInfo = banks.find(b => b.code === bankCode);
@@ -588,10 +588,10 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
   console.log('🔍 [NEW-CONTACT] Verificando banco:', { bankCode, bankName });
   
   // Verificar por código o por nombre
-  const isByCode = lasNavesCodes.includes(bankCode);
-  const isByName = bankName.toUpperCase().includes('LAS NAVES') || 
-                   bankName.toUpperCase().includes('COOP AC LAS NAVES') ||
-                   bankName.toUpperCase().includes('COOPERATIVA LAS NAVES');
+  const isByCode = cacvilCodes.includes(bankCode);
+  const isByName = bankName.toUpperCase().includes('CACVIL') || 
+                   bankName.toUpperCase().includes('VILCABAMBA') ||
+                   bankName.toUpperCase().includes('COOPERATIVA VILCABAMBA');
   
   console.log('🏦 [NEW-CONTACT] Resultado detección:', { isByCode, isByName, finalResult: isByCode || isByName });
   
@@ -799,7 +799,7 @@ const NewContact = ({ onBack, onContactCreated, onProceedToTransfer }) => {
                     value={bankSearch}
                     onChange={handleBankSearchChange}
                     onFocus={() => setShowBankDropdown(true)}
-                    placeholder="Buscar banco (ej: Pich, Las Naves)..."
+                    placeholder="Buscar banco (ej: Pichincha, CACVIL)..."
                     className={`w-full px-4 py-3 bg-white/90 border rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-400/50 transition-all duration-300 backdrop-blur-sm ${errors.bankDestination ? 'border-red-500' : 'border-slate-300'
                       }`}
                   />
