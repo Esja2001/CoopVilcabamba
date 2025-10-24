@@ -245,21 +245,6 @@ const SameAccounts = ({ onBack, openWindow }) => {
     setTransferData(null);
   };
 
-  const handleNewTransfer = () => {
-    setCurrentStep('form');
-    setTransferData(null);
-    setTransferResult(null);
-    setFormData({
-      transferType: 'internal',
-      fromAccount: '',
-      toAccount: '',
-      amount: '',
-      description: ''
-    });
-    setErrors({});
-    setError(null);
-  };
-
   const handlePrintReceipt = async () => {
     try {
       const data = transferResult?.transferencia || {};
@@ -530,12 +515,6 @@ const SameAccounts = ({ onBack, openWindow }) => {
                 className="w-full bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 font-medium py-3 px-6 rounded-xl transition-colors duration-200"
               >
                 Imprimir comprobante
-              </button>
-              <button
-                onClick={handleNewTransfer}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-md shadow-blue-500/20"
-              >
-                Nueva Transferencia
               </button>
               <button
                 onClick={onBack}
